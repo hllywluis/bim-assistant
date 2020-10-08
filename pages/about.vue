@@ -1,0 +1,100 @@
+<template>
+  <div class="about">
+    <section class="background-picture">
+      <navbar :on_about="true"></navbar>
+      <div class="container main-message w-100 ">
+        <h1 class="text-center text-lg-left">About</h1>
+      </div>
+    </section>
+    <p>BIM (Building Information Modelling) is an intelligent digital representation of physical and functional characteristics of a building or infrastructure. It is considered the game changing innovation for the AEC (Architecture, Engineering, Construction) industry boasting its operational efficiency providing insights and tools to more efficiently plan, design, construct, and manage building and infrastructure.
+    </p>
+    <p>This is the third release of Intelligent BIM Virtual Assistant, a web application that renders 3D models and 2D floor plans for BIM objects of different formats with an implemented speech recognition feature for design-based queries.</p>
+    <p>BIM provides essential insights to aid in efficient planning and management for infrastructure construction.
+      It still requires a learning curve for those interested in using the product, yet it can provide an easier way to study models by allowing users to make verbal queries to the virtual assistant which can reply through verbal messages and highlighting objects in the viewer.</p>
+
+  </div>
+</template>
+
+<script>
+import navbar from "@/components/navbar";
+
+export default {
+  name: "About",
+  components: {navbar}
+}
+</script>
+
+<style scoped>
+.background-picture::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 4.7rem;
+  background: url(../assets/images/wave-large.png) center no-repeat;
+  background-size: cover;
+}
+
+.background-picture {
+  width: 100%;
+  height: 45vh;
+  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%);
+  background-size: cover;
+  position: relative;
+}
+
+@-webkit-keyframes shake {
+  from{
+    -webkit-transform: rotate(3deg);
+  }
+
+  to{
+    -webkit-transform: rotate(-3deg);
+    -webkit-transform-origin: center
+    center;
+  }
+}
+
+/*Screen Resolution with min-width: 700px*/
+@media screen and (min-width: 768px) {
+  .background-picture::before {
+    height: 6.5rem;
+  }
+  .main-message {
+    transform: translateY(50%);
+  }
+}
+
+/*Screen Resolution with min-width: 950px*/
+@media screen and (min-width: 950px) {
+  .background-picture {
+    height: 22.7rem;
+  }
+  .background-picture::before {
+    height: 9.7rem;
+  }
+  .main-message {
+    transform: translateY(30%);
+  }
+  .main-message h1 {
+    font-size: 3.0rem;
+  }
+}
+
+/*Screen Resolution with min-width: 1200px*/
+@media screen and (min-width: 1100px) {
+  .background-picture {
+    height: 23.7rem;
+  }
+  .background-picture::before {
+    height: 13.7rem;
+  }
+  .main-message h1 {
+    font-size: 2.7rem;
+  }
+  .main-message h5 {
+    font-size: 1.2rem;
+  }
+}
+</style>
