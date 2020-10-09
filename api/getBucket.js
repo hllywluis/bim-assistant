@@ -21,7 +21,6 @@ oAuth2Legged.authenticate().then(function (credentials) {
         for (let i = 0; i < bucket.body.items.length; ++i) {
             bucketArray.push(bucket.body.items[i])
         }
-        console.log(bucketArray)
         ObjectsAPI.getObjects(bucketArray[4].bucketKey, {}, oAuth2Legged, credentials).then(function (objects) {
             objectArray.push(objects.body.items[0])
             let jobInput = new ForgeSDK.JobPayloadInput()
@@ -37,7 +36,7 @@ oAuth2Legged.authenticate().then(function (credentials) {
             jobPayload.output = jobOutput
             DerivativesAPI.translate(jobPayload, {}, oAuth2Legged, credentials).then(function (job) {
                 DerivativesAPI.getManifest(job.body.urn, {}, oAuth2Legged, credentials).then(function (manifest) {
-                    console.log(manifest)
+                    //TODO: Do something with the manifest.
                 }, function (err) {
                     console.error(err)
                 })

@@ -1,43 +1,40 @@
 <template>
-<!--  <client-only>-->
-<!--    <div class="forgeViewer">-->
-<!--      <navbar :on_viewer="true" class="py-0"-->
-<!--              style="background-color: #818FB7; margin-bottom: 2rem; opacity: 50%"></navbar>-->
-<!--      <div class="container-fluid text-center">-->
-<!--        <div class="row d-inline-flex w-100 ">-->
+  <client-only>
+    <div class="forgeViewer">
+      <navbar :on_viewer="true" class="py-0"
+              style="background-color: #818FB7; margin-bottom: 2rem; opacity: 50%"></navbar>
+      <div class="container-fluid text-center">
+        <div class="row d-inline-flex w-100 ">
 
-<!--          &lt;!&ndash; Left Screen Section &ndash;&gt;-->
-<!--          &lt;!&ndash; 3D Modeling Section &ndash;&gt;-->
-<!--          <div class="3D-modeling bg-light mb-4 border col-lg-8" style="height: 85.5vh">-->
-<!--            3D-Modeling goes here <span class="badge bg-info ml-2">New</span>-->
-<!--            <div id="myViewer"></div>-->
-<!--          </div>-->
+          <!-- Left Screen Section -->
+          <!-- 3D Modeling Section -->
+          <div class="3D-modeling bg-light mb-4 border col-lg-8" style="height: 85.5vh">
+            3D-Modeling goes here <span class="badge bg-info ml-2">New</span>
+            <forge-vuer
+                :get-access-token="handleAccessToken"
+                :urn="myObjectUrn"
+                :extensions="extensions"
+            />
+          </div>
 
-<!--          &lt;!&ndash; Left Screen Section &ndash;&gt;-->
-<!--          <div class="col-lg-4">-->
-<!--            &lt;!&ndash; 2D Modeling Section &ndash;&gt;-->
-<!--            <div class="2D-modeling bg-light border" style="height: 75vh">-->
-<!--              2D-Modeling goes here <span class="badge bg-info ml-2">New</span>-->
-<!--            </div>-->
-<!--            <br>-->
-<!--            <df-messenger-->
-<!--                allow="microphone;"-->
-<!--                chat-title="BIM Assistant"-->
-<!--                agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"-->
-<!--                language-code="en"-->
-<!--                chat-icon=""-->
-<!--            ></df-messenger>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </client-only>-->
-  <client-only placeholder="Loading...">
-    <forge-vuer
-        :get-access-token="handleAccessToken"
-        :urn="myObjectUrn"
-        :extensions="extensions"
-    />
+          <!-- Left Screen Section -->
+          <div class="col-lg-4">
+            <!-- 2D Modeling Section -->
+            <div class="2D-modeling bg-light border" style="height: 75vh">
+              2D-Modeling goes here <span class="badge bg-info ml-2">New</span>
+            </div>
+            <br>
+            <df-messenger
+                allow="microphone;"
+                chat-title="BIM Assistant"
+                agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"
+                language-code="en"
+                chat-icon=""
+            ></df-messenger>
+          </div>
+        </div>
+      </div>
+    </div>
   </client-only>
 </template>
 
