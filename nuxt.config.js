@@ -51,5 +51,15 @@ module.exports = {
         bundleRenderer: {
             runInNewContext: false
         }
-    }
+    },
+    plugins: [
+        '@/plugins/firestore'
+    ],
+    link: [
+        {
+            rel: 'icon',
+            type: 'image/x-icon',
+            href: 'favicon.ico'
+        }
+    ]
 }

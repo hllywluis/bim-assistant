@@ -43,7 +43,7 @@
             </div>
 
             <div class="w-100 text-center d-flex justify-content-center">
-              <button @click="google_sign_in" class="google-btn btn btn-block btn-light mx-2" type="submit" style="position: relative; padding-left: 2em; margin-bottom: 1.1em"><ion-icon name="logo-google" style="position: absolute; left: 1.4em; top: 1em; display: block"></ion-icon> Continue with Google</button>
+              <button @click="google_sign_in" class="google-btn btn btn-block btn-light mx-2" style="position: relative; padding-left: 2em; margin-bottom: 1.1em"><ion-icon name="logo-google" style="position: absolute; left: 1.4em; top: 1em; display: block"></ion-icon> Continue with Google</button>
             </div>
           </form>
         </div>
@@ -100,8 +100,9 @@ export default {
     // Sign in using Google OAuth.
     google_sign_in: function () {
       let provider = new this.$fireAuthObj.GoogleAuthProvider();
-      this.$fireAuth.signInWithRedirect(provider)
-      this.$router.replace({name: 'index'})
+      this.$fireAuth.signInWithPopup(provider).then(() => {
+        this.$router.push({name: 'index'})
+      })
     }
   }
 }

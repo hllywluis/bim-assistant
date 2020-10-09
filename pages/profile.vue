@@ -1,28 +1,60 @@
 <template>
-  <div class="about">
+  <div class="profile">
     <section class="background-picture">
-      <navbar :on_about="true"></navbar>
+      <navbar :on_profile="true"></navbar>
       <div class="container main-message w-100 ">
-        <h1 class="text-center text-lg-left">About</h1>
+        <h1 class="text-center text-md-left">My Profile</h1>
       </div>
     </section>
-    <p>BIM (Building Information Modelling) is an intelligent digital representation of physical and functional characteristics of a building or infrastructure. It is considered the game changing innovation for the AEC (Architecture, Engineering, Construction) industry boasting its operational efficiency providing insights and tools to more efficiently plan, design, construct, and manage building and infrastructure.
-    </p>
-    <p>This is the third release of Intelligent BIM Virtual Assistant, a web application that renders 3D models and 2D floor plans for BIM objects of different formats with an implemented speech recognition feature for design-based queries.</p>
-    <p>BIM provides essential insights to aid in efficient planning and management for infrastructure construction.
-      It still requires a learning curve for those interested in using the product, yet it can provide an easier way to study models by allowing users to make verbal queries to the virtual assistant which can reply through verbal messages and highlighting objects in the viewer.</p>
-
+    <h5>Hi {{userName}}! You are a: {{ userRole }} for '{{companyName}}'.</h5>
+    <h5>Phone: {{phone}}</h5>
+    <h5>Email: {{userEmail}}</h5>
+    <div v-if="userRole==='Construction Manager'">
+    </div>
   </div>
 </template>
 
 <script>
 import navbar from "@/components/navbar";
+import {mapGetters} from 'vuex'
 
 export default {
-  name: "About",
+  name: "profile",
   components: {navbar},
+
+  computed: {
+    ...mapGetters({
+      user: 'user/user'
+    })
+  },
+  data() {
+    return {
+      userRole: '',
+      companyName: '',
+      phone: '',
+      userName: '',
+      userEmail: '',
+      userPassword: '',
+      on_manager: Boolean,
+    }
+  },
+  firestore() {
+    const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
+    userdataRef.onSnapshot((docSnapshot) => {
+      this.userRole = docSnapshot.data()['userRole']
+      this.companyName = docSnapshot.data()['companyName']
+      this.phone = docSnapshot.data()['userPhoneNumber']
+      this.userName = docSnapshot.data()['username']
+      this.userEmail = docSnapshot.data()['userEmail']
+      this.userPassword = docSnapshot.data()['userPassword']
+      if (this.userRole == null) {
+        this.userRole = "Software Engineer"
+      }
+    })
+    //const companyEmployees = db.collection('userdata')
+  },
   head: {
-    title: 'BIM - About'
+    title: 'BIM - Profile'
   }
 }
 </script>
@@ -42,7 +74,8 @@ export default {
 .background-picture {
   width: 100%;
   height: 45vh;
-  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%),
+  url("../assets/images/construction.jpg") center no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -54,10 +87,10 @@ export default {
 
   to{
     -webkit-transform: rotate(-3deg);
-    -webkit-transform-origin: center
-    center;
+    -webkit-transform-origin: center center;
   }
 }
+
 
 /*Screen Resolution with min-width: 700px*/
 @media screen and (min-width: 768px) {
