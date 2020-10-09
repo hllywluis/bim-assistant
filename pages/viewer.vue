@@ -2,7 +2,7 @@
   <client-only>
     <div class="forgeViewer">
       <navbar :on_viewer="true" class="py-0"
-              style="background-color: #818FB7; margin-bottom: 2rem; opacity: 50%"></navbar>
+              style="background-color: rgb(84,97,164); margin-bottom: 2rem; opacity: 50%"></navbar>
       <div class="container-fluid text-center">
         <div class="row d-inline-flex w-100 ">
 
@@ -65,7 +65,7 @@ export default {
   },
   data() {
     return {
-      myObjectUrn: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6M2YxOTEyNzktMGJlMy00ZDJmLTgxNmUtNDE3NjY4MWEwZWVlLWJrLWRlbW9fNF8xNy1wbi0xL2hvbWUlMjAoMSkuaWZj',
+      myObjectUrn: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6MGQ5YjI0NzQtMDY3Zi00Y2VmLWI2MWYtZjg4OTYwNDkxNjFkLWJrLTEtcG4tMi9SZXZpdCUyME1vZGVsJTIwMS5ydnQ',
       myToken: '',
       tokenPkg: {},
       treeNodePkg: {},
