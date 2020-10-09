@@ -180,12 +180,6 @@ export default {
   name: 'index',
   components: {navbar},
   head: {
-    link: [
-      {
-        rel: 'stylesheet',
-        href: 'https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css'
-      }
-    ],
     title: 'BIM - Index'
   },
   data() {
