@@ -99,9 +99,9 @@ export default {
     },
     // Sign in using Google OAuth.
     google_sign_in: function () {
+      this.$router.replace({name: 'index'})
       let provider = new this.$fireAuthObj.GoogleAuthProvider();
       this.$fireAuth.signInWithRedirect(provider)
-      this.$router.replace({name: 'index'})
     }
   }
 }

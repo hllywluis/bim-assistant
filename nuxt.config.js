@@ -9,7 +9,8 @@ module.exports = {
         '@nuxtjs/axios'
     ],
     serverMiddleware: [
-        {path: '/api/token', handler: '~/api/getToken.js'}
+        {path: '/api/token', handler: '~/api/getToken.js'},
+        {path: '/api/buckets', handler: '~/api/getBucket.js'}
     ],
     firebase: {
         config: {
