@@ -100,8 +100,8 @@ export default {
     // Sign in using Google OAuth.
     google_sign_in: function () {
       let provider = new this.$fireAuthObj.GoogleAuthProvider();
-      this.$fireAuth.signInWithPopup(provider).then(() => {
-        this.$router.push({name: 'index'})
+      this.$fireAuth.signInWithRedirect(provider).then(() => {
+        this.$router.replace({name: 'index'})
       })
     }
   }
