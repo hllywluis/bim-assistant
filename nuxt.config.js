@@ -55,7 +55,8 @@ module.exports = {
         }
     },
     plugins: [
-        '@/plugins/firestore'
+        '@/plugins/firestore',
+        {src: '@/plugins/forge-vuer', ssr: false}
     ],
     head: {
         meta: [
@@ -104,8 +105,8 @@ module.exports = {
             },
             {
                 crossOrigin: 'anonymous',
-                integrity: 'sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n',
-                src: 'https://code.jquery.com/jquery-3.4.1.slim.min.js'
+                integrity: 'sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=',
+                src: 'https://code.jquery.com/jquery-3.5.1.js'
             },
             {
                 crossOrigin: 'anonymous',

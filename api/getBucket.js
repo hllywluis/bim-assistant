@@ -21,7 +21,8 @@ oAuth2Legged.authenticate().then(function (credentials) {
         for (let i = 0; i < bucket.body.items.length; ++i) {
             bucketArray.push(bucket.body.items[i])
         }
-        ObjectsAPI.getObjects(bucketArray[0].bucketKey, {}, oAuth2Legged, credentials).then(function (objects) {
+        console.log(bucketArray)
+        ObjectsAPI.getObjects(bucketArray[4].bucketKey, {}, oAuth2Legged, credentials).then(function (objects) {
             objectArray.push(objects.body.items[0])
             let jobInput = new ForgeSDK.JobPayloadInput()
             let jobOutput = new ForgeSDK.JobPayloadOutput()

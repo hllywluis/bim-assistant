@@ -1,49 +1,91 @@
 <template>
-    <div class="forgeViewer">
-      <navbar :on_viewer="true" class="py-0"
-              style="background-color: #818FB7; margin-bottom: 2rem; opacity: 50%"></navbar>
-      <div class="container-fluid text-center">
-        <div class="row d-inline-flex w-100 ">
+<!--  <client-only>-->
+<!--    <div class="forgeViewer">-->
+<!--      <navbar :on_viewer="true" class="py-0"-->
+<!--              style="background-color: #818FB7; margin-bottom: 2rem; opacity: 50%"></navbar>-->
+<!--      <div class="container-fluid text-center">-->
+<!--        <div class="row d-inline-flex w-100 ">-->
 
-          <!-- Left Screen Section -->
-          <!-- 3D Modeling Section -->
-          <div class="3D-modeling bg-light mb-4 border col-lg-8" style="height: 85.5vh">
-            3D-Modeling goes here <span class="badge bg-info ml-2">New</span>
-          </div>
+<!--          &lt;!&ndash; Left Screen Section &ndash;&gt;-->
+<!--          &lt;!&ndash; 3D Modeling Section &ndash;&gt;-->
+<!--          <div class="3D-modeling bg-light mb-4 border col-lg-8" style="height: 85.5vh">-->
+<!--            3D-Modeling goes here <span class="badge bg-info ml-2">New</span>-->
+<!--            <div id="myViewer"></div>-->
+<!--          </div>-->
 
-          <!-- Left Screen Section -->
-          <div class="col-lg-4">
-            <!-- 2D Modeling Section -->
-            <div class="2D-modeling bg-light border" style="height: 75vh">
-              2D-Modeling goes here <span class="badge bg-info ml-2">New</span>
-            </div>
-            <br>
-            <df-messenger
-                allow="microphone;"
-                chat-title="BIM Assistant"
-                agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"
-                language-code="en"
-                chat-icon=""
-            ></df-messenger>
-          </div>
-        </div>
-      </div>
-    </div>
+<!--          &lt;!&ndash; Left Screen Section &ndash;&gt;-->
+<!--          <div class="col-lg-4">-->
+<!--            &lt;!&ndash; 2D Modeling Section &ndash;&gt;-->
+<!--            <div class="2D-modeling bg-light border" style="height: 75vh">-->
+<!--              2D-Modeling goes here <span class="badge bg-info ml-2">New</span>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <df-messenger-->
+<!--                allow="microphone;"-->
+<!--                chat-title="BIM Assistant"-->
+<!--                agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"-->
+<!--                language-code="en"-->
+<!--                chat-icon=""-->
+<!--            ></df-messenger>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </client-only>-->
+  <client-only placeholder="Loading...">
+    <forge-vuer
+        :get-access-token="handleAccessToken"
+        :urn="myObjectUrn"
+        :extensions="extensions"
+    />
+  </client-only>
 </template>
 
 <script>
-import axios from 'axios'
 import navbar from "@/components/navbar";
+import myAwesomeExtension from "@/components/forge/extensions/myAwesomeExtension";
+import myCustomToolbar from "@/components/forge/extensions/myCustomToolbar";
 
 export default {
   name: "Viewer",
   components: {
     navbar
   },
+  head() {
+    return {
+      script: [
+        {
+          src: "https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"
+        }
+      ],
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css"
+        }
+      ]
+    }
+  },
   data() {
     return {
-      myObjectUrn: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6MGQ5YjI0NzQtMDY3Zi00Y2VmLWI2MWYtZjg4OTYwNDkxNjFkLWJrLTEtcG4tMi9SZXZpdCUyME1vZGVsJTIwMS5ydnQ',
-      myToken: ''
+      myObjectUrn: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6M2YxOTEyNzktMGJlMy00ZDJmLTgxNmUtNDE3NjY4MWEwZWVlLWJrLWRlbW9fNF8xNy1wbi0xL2hvbWUlMjAoMSkuaWZj',
+      myToken: '',
+      tokenPkg: {},
+      treeNodePkg: {},
+      modelProgress: 0,
+      extensions: {
+        myAwesomeExtension,
+        myCustomToolbar
+      }
+    }
+  },
+  methods: {
+    handleAccessToken: async function(onSuccess) {
+      await this.$axios.$get('http://localhost:3000/api/token').then(res => {
+        onSuccess(res.access_token, res.expires_in)
+      }).catch(err => {
+        console.error(err)
+      })
     }
   },
   mounted() {
