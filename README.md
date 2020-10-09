@@ -1,7 +1,6 @@
 # BIM Virtual Assistant
 
 ## Project setup
-In your terminal, change directories to 'client' and then 'server,' then run this in each directory:
 ```
 npm install
 ```
