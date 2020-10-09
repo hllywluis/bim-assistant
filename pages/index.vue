@@ -191,6 +191,10 @@ export default {
     ...mapGetters({
       user: 'user/user'
     })
+  },
+  async asyncData({ $axios }) {
+    let response = await $axios.$get('http://localhost:3000/api/token')
+    console.log(response)
   }
 }
 </script>

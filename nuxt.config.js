@@ -5,7 +5,11 @@ module.exports = {
     modules: [
         'bootstrap-vue/nuxt',
         '@nuxtjs/pwa',
-        '@nuxtjs/firebase'
+        '@nuxtjs/firebase',
+        '@nuxtjs/axios'
+    ],
+    serverMiddleware: [
+        {path: '/api/token', handler: '~/api/getToken.js'}
     ],
     firebase: {
         config: {
