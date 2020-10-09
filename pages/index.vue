@@ -177,7 +177,7 @@ import navbar from '@/components/navbar'
 import {mapGetters} from 'vuex'
 
 export default {
-  name: 'Index',
+  name: 'index',
   components: {navbar},
   head: {
     link: [
@@ -195,7 +195,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user'
+      user: 'user/user'
     })
   }
 }

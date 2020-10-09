@@ -61,5 +61,13 @@ module.exports = {
             type: 'image/x-icon',
             href: 'favicon.ico'
         }
+    ],
+    script: [
+        {
+            src: 'https://developer.api.autodesk.com/modelderivative/v2/viewers/three.min.js?v=2.7.*'
+        },
+        {
+            src: 'https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js'
+        }
     ]
 }
