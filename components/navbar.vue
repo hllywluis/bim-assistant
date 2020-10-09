@@ -94,7 +94,9 @@ export default {
     sign_out: function () {
       if (this.$fireAuth.currentUser) {
         this.$fireAuth.signOut().then(() => {
-          this.$forceUpdate()
+          if (this.$router.currentRoute.name !== 'index') {
+            this.$router.push({name: 'index'})
+          }
         })
       }
     }

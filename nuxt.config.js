@@ -44,9 +44,6 @@ module.exports = {
             ]
         }
     },
-    bootstrapVue: {
-        icons: true
-    },
     render: {
         bundleRenderer: {
             runInNewContext: false
@@ -56,6 +53,11 @@ module.exports = {
         '@/plugins/firestore'
     ],
     head: {
+        meta: [
+            {charset: 'utf-8'},
+            {name: 'viewport', content: 'width=device-width,initial-scale=1.0'},
+            {httpEquiv: 'X-UA-Compatible', content: 'IE=edge'}
+        ],
         link: [
             {
                 rel: 'icon',
@@ -110,7 +112,11 @@ module.exports = {
                 integrity: 'sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6'
             },
             {
-                src: 'https://unpkg.com/ionicons@5.1.2/dist/ionicons.js'
+                type: 'module',
+                src: 'https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js'
+            },
+            {
+                src: 'https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js'
             }
         ]
     }
