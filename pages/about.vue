@@ -2,16 +2,25 @@
   <div class="about">
     <section class="background-picture">
       <navbar :on_about="true"></navbar>
-      <div class="container main-message w-100 ">
+      <div class="container main-message w-100">
         <h1 class="text-center text-lg-left">About</h1>
       </div>
     </section>
-    <p>BIM (Building Information Modelling) is an intelligent digital representation of physical and functional characteristics of a building or infrastructure. It is considered the game changing innovation for the AEC (Architecture, Engineering, Construction) industry boasting its operational efficiency providing insights and tools to more efficiently plan, design, construct, and manage building and infrastructure.
-    </p>
-    <p>This is the third release of Intelligent BIM Virtual Assistant, a web application that renders 3D models and 2D floor plans for BIM objects of different formats with an implemented speech recognition feature for design-based queries.</p>
-    <p>BIM provides essential insights to aid in efficient planning and management for infrastructure construction.
-      It still requires a learning curve for those interested in using the product, yet it can provide an easier way to study models by allowing users to make verbal queries to the virtual assistant which can reply through verbal messages and highlighting objects in the viewer.</p>
+    <div class="container-fluid">
+      <p>BIM (Building Information Modelling) is an intelligent digital representation of physical and functional
+        characteristics of a building or infrastructure. It is considered the game changing innovation for the AEC
+        (Architecture, Engineering, Construction) industry boasting its operational efficiency providing insights and
+        tools to more efficiently plan, design, construct, and manage building and infrastructure.
+      </p>
+      <p>This is the third release of Intelligent BIM Virtual Assistant, a web application that renders 3D models and 2D
+        floor plans for BIM objects of different formats with an implemented speech recognition feature for design-based
+        queries.</p>
+      <p>BIM provides essential insights to aid in efficient planning and management for infrastructure construction.
+        It still requires a learning curve for those interested in using the product, yet it can provide an easier way
+        to study models by allowing users to make verbal queries to the virtual assistant which can reply through verbal
+        messages and highlighting objects in the viewer.</p>
 
+    </div>
   </div>
 </template>
 
@@ -48,14 +57,13 @@ export default {
 }
 
 @-webkit-keyframes shake {
-  from{
+  from {
     -webkit-transform: rotate(3deg);
   }
 
-  to{
+  to {
     -webkit-transform: rotate(-3deg);
-    -webkit-transform-origin: center
-    center;
+    -webkit-transform-origin: center center;
   }
 }
 
@@ -64,6 +72,7 @@ export default {
   .background-picture::before {
     height: 6.5rem;
   }
+
   .main-message {
     transform: translateY(50%);
   }
@@ -74,12 +83,15 @@ export default {
   .background-picture {
     height: 22.7rem;
   }
+
   .background-picture::before {
     height: 9.7rem;
   }
+
   .main-message {
     transform: translateY(30%);
   }
+
   .main-message h1 {
     font-size: 3.0rem;
   }
@@ -90,12 +102,15 @@ export default {
   .background-picture {
     height: 23.7rem;
   }
+
   .background-picture::before {
     height: 13.7rem;
   }
+
   .main-message h1 {
     font-size: 2.7rem;
   }
+
   .main-message h5 {
     font-size: 1.2rem;
   }
