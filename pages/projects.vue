@@ -26,7 +26,26 @@
       <button v-if="!on_delete && !on_create && project_list.length>0" v-on:click="on_delete=true" class="btn btn-danger mx-auto text-center" type="button">Delete a Project</button>
       <div class="form-group" v-show="on_delete">
         <div :key="idx" v-for="(project, idx) of project_list " >
-          <h1 v-if="!on_create && on_delete" @click="delete_project(project)" class="for-hover btn btn-dark btn-danger mx-auto text-center">{{ project }}</h1>
+          <button type="button" class="for-hover btn btn-dark btn-danger mx-auto text-center" data-toggle="modal" data-target="#deleteConfirmModal">
+            {{ project }}
+          </button>
+
+          <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="deleteConfirmLabel">Are you sure you'd like to delete {{ project }}?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+              <div class="modal-body">
+                <p>This action cannot be undone.</p>
+              </div>
+            </div>
+          </div>
+<!--          <h1 v-if="!on_create && on_delete" @click="delete_project(project)" class="for-hover btn btn-dark btn-danger mx-auto text-center">{{ project }}</h1>-->
         </div>
         <button v-if="!on_create && on_delete" v-on:click="on_delete=false" class="btn btn-dark mx-auto text-center" type="button">Cancel</button>
       </div>

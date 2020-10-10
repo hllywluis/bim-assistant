@@ -2,14 +2,14 @@
   <div class="profile">
     <section class="background-picture">
       <navbar :on_profile="true"></navbar>
-      <div class="container main-message w-100 ">
+      <div class="container-fluid main-message w-100 ">
         <h1 class="text-center text-md-left">My Profile</h1>
       </div>
     </section>
-    <h5>Hi {{userName}}! You are a: {{ userRole }} for '{{companyName}}'.</h5>
-    <h5>Phone: {{phone}}</h5>
-    <h5>Email: {{userEmail}}</h5>
-    <div v-if="userRole==='Construction Manager'">
+        <h5>Hi {{userName}}! You are a: {{ userRole }} for '{{companyName}}'.</h5>
+        <h5>Phone: {{phone}}</h5>
+        <h5>Email: {{userEmail}}</h5>
+        <div v-if="userRole==='Construction Manager'">
     </div>
   </div>
 </template>
