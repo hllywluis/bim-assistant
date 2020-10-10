@@ -22,6 +22,7 @@
             <!-- 2D Modeling Section -->
             <div class="2D-modeling bg-light border" style="height: 75vh">
               2D-Modeling goes here <span class="badge bg-info ml-2">New</span>
+              <forge-vuer/> <!-- TODO: Implement 2D forge-vuer using 2D urn. -->
             </div>
             <br>
             <df-messenger

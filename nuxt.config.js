@@ -12,6 +12,9 @@ module.exports = {
         {path: '/api/token', handler: '~/api/getToken.js'},
         {path: '/api/buckets', handler: '~/api/getBucket.js'}
     ],
+    bootstrapVue: {
+        icons: true
+    },
     firebase: {
         config: {
             apiKey: "AIzaSyCzGu7JgGFSoYV4jKsOafTs7S3_1jJtoVE",
@@ -61,7 +64,7 @@ module.exports = {
     head: {
         meta: [
             {charset: 'utf-8'},
-            {name: 'viewport', content: 'width=device-width,initial-scale=1.0'},
+            {name: 'viewport', content: 'width=device-width, initial-scale=1.0, shrink-to-fit=no'},
             {httpEquiv: 'X-UA-Compatible', content: 'IE=edge'}
         ],
         link: [
@@ -73,12 +76,6 @@ module.exports = {
             {
                 rel: 'stylesheet',
                 href: 'https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css'
-            },
-            {
-                rel: 'stylesheet',
-                crossOrigin: 'anonymous',
-                integrity: 'sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh',
-                href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
             },
             {
                 rel: 'stylesheet',
@@ -110,12 +107,8 @@ module.exports = {
             },
             {
                 crossOrigin: 'anonymous',
-                integrity: 'sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo',
-                src: 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
-            },
-            {
-                crossOrigin: 'anonymous',
-                integrity: 'sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6'
+                integrity: 'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV',
+                src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
             },
             {
                 type: 'module',
