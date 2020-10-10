@@ -21,7 +21,6 @@
 		"firebase-admin": "^9.2.0",
 		"firebase-functions": "^3.11.0",
 		"forge-apis": "^0.7.3",
-		"forge-vuer": "^1.0.1",
 		"fs": "0.0.1-security",
 		"jquery": "^3.5.1",
 		"js-cookie": "^2.2.1",

@@ -19,7 +19,6 @@
         It still requires a learning curve for those interested in using the product, yet it can provide an easier way
         to study models by allowing users to make verbal queries to the virtual assistant which can reply through verbal
         messages and highlighting objects in the viewer.</p>
-
     </div>
   </div>
 </template>
