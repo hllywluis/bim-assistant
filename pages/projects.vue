@@ -10,27 +10,40 @@
       </div>
     </section>
 
-    <div class="projects-list">
-      <button v-if="!on_delete && !on_create" v-on:click="on_create=true" class="btn btn-dark mx-auto text-center" type="button">Create New Project</button>
-      <div class="form-group" v-show="on_create">
-        <input v-model="project_name" type="text" id="newProjectName" placeholder="New Project Name *" required>
+    <div class="projects-list container-fluid mt-3">
+      <button v-if="!on_delete && !on_create" v-on:click="on_create=true" class="btn btn-dark mx-auto text-center"
+              type="button">Create New Project
+      </button>
+      <div class="form-group text-center" v-show="on_create">
+        <input v-model="project_name" type="text" id="newProjectName" placeholder="New Project Name *"
+               class="form-control align-content-center" style="width: 50%;" required>
         <div>
-          <button v-on:click="new_project(project_name)" class="btn btn-dark mx-auto text-center" type="button">Submit</button>
+          <button v-on:click="new_project(project_name)" class="btn btn-dark mx-auto text-center" type="button">Submit
+          </button>
         </div>
-        <button v-if="on_create && !on_delete" v-on:click="on_create=false" class="btn btn-dark mx-auto text-center" type="button">Cancel</button>
+        <button v-if="on_create && !on_delete" v-on:click="on_create=false" class="btn btn-dark mx-auto text-center"
+                type="button">Cancel
+        </button>
       </div>
 
-      <div :key="idx" v-for="(project, idx) of project_list " >
-        <router-link v-if="!on_create && !on_delete" to="viewer" class = "btn btn-light mx-auto text-center">{{ project }}</router-link>
+      <div :key="idx" v-for="(project, idx) of project_list ">
+        <router-link v-if="!on_create && !on_delete" to="viewer" class="btn btn-light mx-auto text-center">{{
+            project
+          }}
+        </router-link>
       </div>
-      <button v-if="!on_delete && !on_create && project_list.length>0" v-on:click="on_delete=true" class="btn btn-danger mx-auto text-center" type="button">Delete a Project</button>
+      <button v-if="!on_delete && !on_create && project_list.length>0" v-on:click="on_delete=true"
+              class="btn btn-danger mx-auto text-center" type="button">Delete Project
+      </button>
       <div class="form-group" v-show="on_delete">
-        <div :key="idx" v-for="(project, idx) of project_list " >
-          <button type="button" class="for-hover btn btn-dark btn-danger mx-auto text-center" data-toggle="modal" data-target="#deleteConfirmModal">
+        <div :key="idx" v-for="(project, idx) of project_list ">
+          <button type="button" class="for-hover btn btn-dark btn-danger mx-auto text-center" data-toggle="modal"
+                  data-target="#deleteConfirmModal">
             {{ project }}
           </button>
 
-          <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModal" aria-hidden="true">
+          <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog"
+               aria-labelledby="deleteConfirmModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -39,15 +52,25 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-              </div>
-              <div class="modal-body">
-                <p>This action cannot be undone.</p>
+                <div class="modal-body">
+                  <strong class="my-auto">This action cannot be undone.</strong>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary my-auto" data-dismiss="modal"
+                          style="width: 40% !important;">Cancel
+                  </button>
+                  <button type="button" class="btn btn-danger my-auto" @click="delete_project(project)"
+                          style="width: 40% !important;" data-dismiss="modal">Delete {{ project }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-<!--          <h1 v-if="!on_create && on_delete" @click="delete_project(project)" class="for-hover btn btn-dark btn-danger mx-auto text-center">{{ project }}</h1>-->
+          <!--          <h1 v-if="!on_create && on_delete" @click="delete_project(project)" class="for-hover btn btn-dark btn-danger mx-auto text-center">{{ project }}</h1>-->
         </div>
-        <button v-if="!on_create && on_delete" v-on:click="on_delete=false" class="btn btn-dark mx-auto text-center" type="button">Cancel</button>
+        <button v-if="!on_create && on_delete" v-on:click="on_delete=false" class="btn btn-dark mx-auto text-center"
+                type="button">Cancel
+        </button>
       </div>
     </div>
   </div>
@@ -85,10 +108,9 @@ export default {
           if (docSnapshot.get('projects')) {
             let project_list = docSnapshot.get('projects')
             // Checks for existing project with same name
-            if (project_list.includes(this.project_name)){
+            if (project_list.includes(this.project_name)) {
               alert("A project already exists with this name");
-            }
-            else {
+            } else {
               project_list.push(this.project_name)
               userdataRef.update({
                 projects: project_list
@@ -100,23 +122,21 @@ export default {
       })
     },
     //deletes an existing project
-    delete_project: function(proj) {
-      if (confirm("Delete '" + proj +  "' forever?")) {
-        const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
-        userdataRef.get().then((docSnapshot) => {
-          if (docSnapshot.exists) {
-            if (docSnapshot.get('projects')) {
-              let project_list = docSnapshot.get('projects')
-              const index = project_list.indexOf(proj)
-              project_list.splice(index, 1)
-              userdataRef.update({
-                projects: project_list
-              })
-            }
+    delete_project: function (proj) {
+      const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
+      userdataRef.get().then((docSnapshot) => {
+        if (docSnapshot.exists) {
+          if (docSnapshot.get('projects')) {
+            let project_list = docSnapshot.get('projects')
+            const index = project_list.indexOf(proj)
+            project_list.splice(index, 1)
+            userdataRef.update({
+              projects: project_list
+            })
           }
-          this.on_delete = false
-        })
-      }
+        }
+        this.on_delete = false
+      })
     }
   },
   firestore() {
@@ -140,6 +160,7 @@ export default {
   background: url(../assets/images/wave-large.png) center no-repeat;
   background-size: cover;
 }
+
 .background-picture {
   width: 100%;
   height: 45vh;
@@ -149,7 +170,7 @@ export default {
   position: relative;
 }
 
-.projects-list{
+.projects-list {
   text-align: center;
 }
 
@@ -166,14 +187,13 @@ export default {
 }
 
 @-webkit-keyframes shake {
-  from{
+  from {
     -webkit-transform: rotate(3deg);
   }
 
-  to{
+  to {
     -webkit-transform: rotate(-3deg);
-    -webkit-transform-origin: center
-    center;
+    -webkit-transform-origin: center center;
   }
 }
 
@@ -184,6 +204,7 @@ export default {
   .background-picture::before {
     height: 6.5rem;
   }
+
   .main-message {
     transform: translateY(50%);
   }
@@ -195,12 +216,15 @@ export default {
   .background-picture {
     height: 22.7rem;
   }
+
   .background-picture::before {
     height: 9.7rem;
   }
+
   .main-message {
     transform: translateY(30%);
   }
+
   .main-message h1 {
     font-size: 3.0rem;
   }
@@ -212,12 +236,15 @@ export default {
   .background-picture {
     height: 23.7rem;
   }
+
   .background-picture::before {
     height: 13.7rem;
   }
+
   .main-message h1 {
     font-size: 2.7rem;
   }
+
   .main-message h5 {
     font-size: 1.2rem;
   }
