@@ -50,7 +50,8 @@ export default {
 .background-picture {
   width: 100%;
   height: 45vh;
-  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%),
+  url("../assets/images/construction.jpg") center no-repeat;
   background-size: cover;
   position: relative;
 }
