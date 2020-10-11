@@ -127,7 +127,9 @@
                   <div class="card-body p-5">
                     <p class="font-weight-light m-0">Proudly developed from the ground up with Nuxt.js and Vue.js, the
                       BIM assistant uploads your 3D models to a secure bucket in Autodesk so you can access your
-                      projects from anywhere. Simply sign in to your account to access all of your projects.</p>
+                      projects from anywhere.</p>
+                    <br/>
+                    <p class="font-weight-light m-0">Simply <nuxt-link to="/sign_in">sign in</nuxt-link> to your account to access all of your projects.</p>
                   </div>
                 </div>
               </div>
