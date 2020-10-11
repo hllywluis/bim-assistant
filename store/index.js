@@ -1,6 +1,13 @@
 export const actions = {
     async nuxtServerInit({dispatch, commit}, {res}) {
-        if (res && res.locals && res.locals.user) {
+        const user = this.$cookies.get('userCookie')
+        if (user) {
+            const parsedUser = JSON.parse(user)
+            await dispatch('user/fetchUser', {
+                parsedUser
+            })
+        }
+        else if (res && res.locals && res.locals.user) {
             const {allClaims: claims, idToken: token, ...authUser} = res.locals.user
             await dispatch('onAuthStateChangedAction', {
                 authUser,

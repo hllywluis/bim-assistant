@@ -27,7 +27,7 @@
             </div>
             <br>
             <df-messenger
-                allow="microphone;"
+                allow="microphone"
                 chat-title="BIM Assistant"
                 agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"
                 language-code="en"

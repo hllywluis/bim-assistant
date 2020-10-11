@@ -19,46 +19,23 @@
       <!-- Navbar links -->
       <div class="collapse navbar-collapse w-100 dual-collapse2 my-3 text-white">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active text-center" v-show="on_index">
+          <li class="nav-item text-center">
             <nuxt-link class="nav-link" to="/">Home</nuxt-link>
           </li>
-          <li class="nav-item text-center" v-show="!on_index">
-            <nuxt-link class="nav-link" to="/">Home</nuxt-link>
-          </li>
-          <li class="nav-item active text-center" v-if="this.user.loggedIn" v-show="on_projects">
+          <li class="nav-item text-center" v-if="this.user.loggedIn">
             <nuxt-link class="nav-link" to="/projects">Projects</nuxt-link>
           </li>
-          <li class="nav-item text-center" v-if="this.user.loggedIn" v-show="!on_projects">
-            <nuxt-link class="nav-link" to="/projects">Projects</nuxt-link>
-          </li>
-          <li class="nav-item active text-center" v-if="this.user.loggedIn" v-show="on_index">
+          <li class="nav-item text-center" v-if="this.user.loggedIn">
             <nuxt-link class="nav-link" to="/profile">My Profile</nuxt-link>
           </li>
-          <li class="nav-item text-center" v-if="this.user.loggedIn" v-show="!on_index">
-            <nuxt-link class="nav-link" to="/profile">My Profile</nuxt-link>
-          </li>
-          <li class="nav-item text-center" v-show="on_about">         <!-- &lt;!&ndash; Description of the Web App / How to Use &ndash;&gt;-->
+          <li class="nav-item text-center">
             <nuxt-link class="nav-link" to="/about">About</nuxt-link>
           </li>
-          <li class="nav-item text-center" v-show="!on_about">
-            <nuxt-link class="nav-link" to="/about">About</nuxt-link>
-          </li>
-          <!--        <li class="nav-item text-center" v-show="on_services">         &lt;!&ndash; Possible company chat / Other resources &ndash;&gt;-->
-          <!--          <router-link class="nav-link" to="/services">Services</router-link>-->
-          <!--        </li>-->
-          <!--        <li class="nav-item text-center" v-show="!on_services">-->
-          <!--          <router-link class="nav-link" to="/services">Services</router-link>-->
-          <!--        </li>-->
-          <li class="nav-item active text-center" v-if="!this.user.loggedIn" v-show="on_sign_in">
-            <nuxt-link class="nav-link" to="/sign_in" v-show="!on_sign_up">Sign In</nuxt-link>
-          </li>
-          <li class="nav-item text-center" v-if="!this.user.loggedIn" v-show="!on_sign_in">
+          <!-- Service Link would go here. -->
+          <li class="nav-item text-center" v-if="!this.user.loggedIn">
             <nuxt-link class="nav-link" to="/sign_in">Sign In</nuxt-link>
           </li>
-          <li class="nav-item active text-center" v-if="!this.user.loggedIn" v-show="on_sign_up">
-            <nuxt-link class="nav-link" to="/sign_up" v-show="on_sign_up">Sign Up</nuxt-link>
-          </li>
-          <li class="nav-item text-center" v-if="!this.user.loggedIn" v-show="!on_sign_up">
+          <li class="nav-item text-center" v-if="!this.user.loggedIn">
             <nuxt-link class="nav-link" to="/sign_up">Sign Up</nuxt-link>
           </li>
           <li class="nav-item text-center " v-if="this.user.loggedIn">
@@ -75,16 +52,6 @@ import {mapGetters} from 'vuex'
 
 export default {
   name: 'navbar',
-  props: {
-    on_index: Boolean,
-    on_sign_in: Boolean,
-    on_sign_up: Boolean,
-    on_viewer: Boolean,
-    on_projects: Boolean,
-    on_about: Boolean,
-    on_services: Boolean,
-    on_profile: Boolean
-  },
   computed: {
     ...mapGetters({
       user: 'user/user'

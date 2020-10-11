@@ -14,6 +14,7 @@
 		"bootstrap-icons": "^1.0.0",
 		"bootstrap-vue": "^2.17.3",
 		"bootstrap": "^4.5.2",
+		"cookie-universal-nuxt": "^2.1.4",
 		"core-js": "^3.6.5",
 		"cors": "^2.8.5",
 		"dialogflow": "^4.0.3",

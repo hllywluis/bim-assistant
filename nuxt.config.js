@@ -4,6 +4,7 @@ module.exports = {
     ],
     modules: [
         'bootstrap-vue/nuxt',
+        'cookie-universal-nuxt',
         '@nuxtjs/pwa',
         '@nuxtjs/firebase',
         '@nuxtjs/axios'
