@@ -40,11 +40,11 @@
       <div class="form-group" v-show="on_delete">
         <div v-for="(project, idx) of project_list" :key="idx">
           <button type="button" class="for-hover btn btn-dark btn-danger mx-auto text-center" data-toggle="modal"
-                  :data-target="'#deleteConfirmModalFor' + project.split(' ').join('').replace(/[^\w\s]/gi, '')">
+                  :data-target="'#deleteConfirmModalFor' + idx">
             {{ project }}
           </button>
 
-          <div class="modal fade" :id="'deleteConfirmModalFor' + project.split(' ').join('').replace(/[^\w\s]/gi, '')" tabindex="-1" role="dialog"
+          <div class="modal fade" :id="'deleteConfirmModalFor' + idx" tabindex="-1" role="dialog"
                aria-labelledby="deleteConfirmModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
