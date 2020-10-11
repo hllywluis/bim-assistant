@@ -82,7 +82,6 @@
 
 <script>
 import navbar from '@/components/navbar'
-import {mapGetters} from 'vuex'
 
 export default {
   name: 'sign_up',
@@ -102,9 +101,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      user: 'user/user'
-    })
+    user() {
+      return this.$store.state.user.user
+    }
   },
   methods: {
     sign_up: function() {

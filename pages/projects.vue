@@ -80,7 +80,6 @@
 
 <script>
 import navbar from '@/components/navbar'
-import {mapGetters} from 'vuex'
 
 export default {
   name: 'Projects',

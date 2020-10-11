@@ -48,14 +48,12 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-
 export default {
   name: 'navbar',
   computed: {
-    ...mapGetters({
-      user: 'user/user'
-    })
+    user() {
+      return this.$store.state.user.user
+    }
   },
   methods: {
     sign_out: function () {

@@ -18,16 +18,15 @@
 
 <script>
 import navbar from "@/components/navbar";
-import {mapGetters} from 'vuex'
 
 export default {
   name: "profile",
   components: {navbar},
 
   computed: {
-    ...mapGetters({
-      user: 'user/user'
-    })
+    user() {
+      return this.$store.state.user.user
+    }
   },
   data() {
     return {
