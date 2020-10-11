@@ -26,23 +26,25 @@
         </button>
       </div>
 
-      <div :key="idx" v-for="(project, idx) of project_list ">
-        <router-link v-if="!on_create && !on_delete" to="viewer" class="btn btn-light mx-auto text-center">{{
+      <div v-for="(project, idx) of project_list" :key="idx">
+        <nuxt-link v-if="!on_create && !on_delete" to="viewer" class="btn btn-light mx-auto text-center">{{
             project
           }}
-        </router-link>
+        </nuxt-link>
       </div>
+
       <button v-if="!on_delete && !on_create && project_list.length>0" v-on:click="on_delete=true"
               class="btn btn-danger mx-auto text-center" type="button">Delete Project
       </button>
+
       <div class="form-group" v-show="on_delete">
-        <div :key="idx" v-for="(project, idx) of project_list ">
+        <div v-for="(project, idx) of project_list" :key="idx">
           <button type="button" class="for-hover btn btn-dark btn-danger mx-auto text-center" data-toggle="modal"
-                  data-target="#deleteConfirmModal">
+                  :data-target="'#deleteConfirmModalFor' + project">
             {{ project }}
           </button>
 
-          <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog"
+          <div class="modal fade" :id="'deleteConfirmModalFor' + project" tabindex="-1" role="dialog"
                aria-labelledby="deleteConfirmModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -94,7 +96,7 @@ export default {
     return {
       project_name: '',
       userName: '',
-      project_list: [{name: ''}],
+      project_list: [],
       on_create: false,
       on_delete: false
     }
