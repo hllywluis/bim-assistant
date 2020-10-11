@@ -88,9 +88,9 @@ export default {
     navbar
   },
   computed: {
-    ...mapGetters({
-      user: 'user/user'
-    })
+    user() {
+      return this.$store.state.user.user
+    }
   },
   data() {
     return {
@@ -98,7 +98,7 @@ export default {
       userName: '',
       project_list: [],
       on_create: false,
-      on_delete: false
+      on_delete: false,
     }
   },
   methods: {

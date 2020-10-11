@@ -3,11 +3,11 @@ module.exports = {
         '@/assets/stylesheets/app.css'
     ],
     modules: [
-        'bootstrap-vue/nuxt',
-        'cookie-universal-nuxt',
         '@nuxtjs/pwa',
         '@nuxtjs/firebase',
-        '@nuxtjs/axios'
+        '@nuxtjs/axios',
+        'bootstrap-vue/nuxt',
+        'cookie-universal-nuxt'
     ],
     serverMiddleware: [
         {path: '/api/token', handler: '~/api/getToken.js'},
@@ -55,7 +55,8 @@ module.exports = {
         workbox: {
             importScripts: [
                 '/firebase-auth-sw.js'
-            ]
+            ],
+            dev: process.env.NODE_ENV !== 'production'
         }
     },
     render: {
