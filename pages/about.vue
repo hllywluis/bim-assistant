@@ -27,7 +27,7 @@
 import navbar from "@/components/navbar";
 
 export default {
-  name: "About",
+  name: "about",
   components: {navbar},
   head: {
     title: 'BIM - About'

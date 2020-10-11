@@ -2,6 +2,17 @@
   <footer><p> {{ footerText }}</p></footer>
 </template>
 
+<script>
+export default {
+  name: 'footer',
+  data() {
+    return {
+      footerText: '© 2020 BIM Assistant. All rights reserved.'
+    }
+  }
+}
+</script>
+
 <style scoped>
 html, body {
   height: 100%;
@@ -28,14 +39,3 @@ footer {
   height: 50px;
 }
 </style>
-
-<script>
-export default {
-  name: 'footer',
-  data() {
-    return {
-      footerText: '© 2020 BIM Assistant. All rights reserved.'
-    }
-  }
-}
-</script>

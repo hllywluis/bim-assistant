@@ -46,7 +46,7 @@ import myAwesomeExtension from "@/components/forge/extensions/myAwesomeExtension
 import myCustomToolbar from "@/components/forge/extensions/myCustomToolbar";
 
 export default {
-  name: "Viewer",
+  name: "viewer",
   components: {
     navbar
   },

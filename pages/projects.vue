@@ -82,7 +82,7 @@
 import navbar from '@/components/navbar'
 
 export default {
-  name: 'Projects',
+  name: 'projects',
   components: {
     navbar
   },
