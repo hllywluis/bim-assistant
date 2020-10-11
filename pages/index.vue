@@ -1,175 +1,173 @@
 <template>
-    <div id="index">
-      <section class="background-picture">
-        <navbar :on_index="true"></navbar>
-        <div id="indexCarousel" class="carousel slide carousel-fade w-100 h-100" data-ride="carousel" data-interval="6000" data-wrap="true" style="position: absolute; z-index: -999; top: 0">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100" src="../assets/images/construction.jpg" style="height: 95vh" alt="First slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="../assets/images/house-3D-model.jpg" style="height: 95vh" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="../assets/images/materials.png" style="height: 95vh" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="../assets/images/white-3D-model.jpg" style="height: 95vh" alt="Fourth slide">
-            </div>
+  <div id="index">
+    <section class="background-picture">
+      <navbar :on_index="true"></navbar>
+      <div id="indexCarousel" class="carousel slide carousel-fade w-100 h-100" data-ride="carousel" data-interval="6000"
+           data-wrap="true" style="position: absolute; z-index: -999; top: 0">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="../assets/images/construction.jpg" style="height: 95vh" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="../assets/images/house-3D-model.jpg" style="height: 95vh"
+                 alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="../assets/images/materials.png" style="height: 95vh" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="../assets/images/white-3D-model.jpg" style="height: 95vh"
+                 alt="Fourth slide">
           </div>
         </div>
+      </div>
 
-        <div class="text-center">
-          <div class="main-message w-100">
-            <h1>BIM Virtual Assistant</h1>
-            <h5 class="v-enter-active text-center container text-white" style="letter-spacing: 2px; font-size: 1rem">The
-              most advanced voice-controlled 3D model assistant</h5>
-            <div class=" w-100 ">
-              <!-- <button class="btn btn-outline-primary" data-target="#exampleModal" data-toggle="modal" type="button">
-                Watch Demo
-              </button> -->
-              <a class="btn" href="#" style="width: 13rem">Watch Demo</a>
-            </div>
+      <div class="text-center">
+        <div class="main-message w-100">
+          <h1>BIM Virtual Assistant</h1>
+          <h5 class="v-enter-active text-center container text-white" style="letter-spacing: 2px; font-size: 1rem">The
+            most advanced voice-controlled 3D model assistant</h5>
+          <div class=" w-100 ">
+            <!-- <button class="btn btn-outline-primary" data-target="#exampleModal" data-toggle="modal" type="button">
+              Watch Demo
+            </button> -->
+            <a class="btn" href="#" style="width: 13rem">Watch Demo</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="experience-virtual">
-        <div class="text-center">
-          <div class="title-heading w-100 p-0" style="margin: 3.25rem 0 4.25rem 0">
-            <h3>Experience</h3>
-            <h1 class="w-100">The Virtual World</h1><br>
-            <p>Facilitate working with 3D models by using our virtual assistant to increase your productivity.</p><br>
+    <section class="experience-virtual">
+      <div class="text-center">
+        <div class="title-heading w-100 p-0" style="margin: 3.25rem 0 4.25rem 0">
+          <h3>Experience</h3>
+          <h1 class="w-100">The Virtual World</h1><br>
+          <p>Facilitate working with 3D models by using our virtual assistant to increase your productivity.</p><br>
+        </div>
+        <div class="features-grid">
+          <!-- grid item #0 -->
+          <div class="features-grid-item virtual-assistant p-3">
+            <i class="icon ion-md-globe"></i>
+            <h1>Helpful Assistant</h1>
+            <p style="font-size: 1.3rem ">Use our assistant to upload, view, and modify your 3D models.</p>
           </div>
-          <div class="features-grid">
-            <!-- grid item #0 -->
-            <div class="features-grid-item virtual-assistant p-3">
-              <i class="icon ion-md-globe"></i>
-              <h1>Helpful Assistant</h1>
-              <p style="font-size: 1.3rem ">Use our assistant to upload, view, and modify your 3D models.</p>
-            </div>
-            <!-- grid item #1 -->
-            <div class="features-grid-item models-management p-3">
-              <i class="icon ion-md-people"></i>
-              <h1>Model Management</h1>
-              <p style="font-size: 1.3rem">Manage your models using buckets and explore your models in 3D spaces.</p>
-            </div>
-            <!-- grid item #2 -->
-            <div class="features-grid-item voice-control p-3">
-              <i class="icon ion-md-mic"></i>
-              <h1>Voice Superpowers</h1>
-              <p style="font-size: 1.3rem">Query your models' properties and do more by using your voice or our convenient
-                chat feature.</p>
-            </div>
+          <!-- grid item #1 -->
+          <div class="features-grid-item models-management p-3">
+            <i class="icon ion-md-people"></i>
+            <h1>Model Management</h1>
+            <p style="font-size: 1.3rem">Manage your models using buckets and explore your models in 3D spaces.</p>
+          </div>
+          <!-- grid item #2 -->
+          <div class="features-grid-item voice-control p-3">
+            <i class="icon ion-md-mic"></i>
+            <h1>Voice Superpowers</h1>
+            <p style="font-size: 1.3rem">Query your models' properties and do more by using your voice or our convenient
+              chat feature.</p>
           </div>
         </div>
-      </section>
-      <section class="product-owner-section">
-        <div class="container">
-          <div class="product-owner">
-            <div class="owner-text-box">
-              <!-- <p class="pb-1 pt-3">Meet the Product Owner</p>
-              <i class="icon ion-md-quote pt-3" style="font-size: 6rem"></i>
-            </div>
-            <div class="owner-links">
-              <img alt="Product Owner" src="">
-              <div class="linkedin mt-3" style="font-size: 2rem; font-family: 'Aldrich', sans-serif;">
-                <a class="linkedin" href="https://www.linkedin.com/in/xuan-lv-14016140/" style="color:white"
-                   target="_blank">Xuan Lv</a>
-              </div> -->
-            </div>
+      </div>
+    </section>
+    <section class="product-owner-section">
+      <div class="container">
+        <div class="product-owner">
+          <div class="owner-text-box">
+            <!-- <p class="pb-1 pt-3">Meet the Product Owner</p>
+            <i class="icon ion-md-quote pt-3" style="font-size: 6rem"></i>
+          </div>
+          <div class="owner-links">
+            <img alt="Product Owner" src="">
+            <div class="linkedin mt-3" style="font-size: 2rem; font-family: 'Aldrich', sans-serif;">
+              <a class="linkedin" href="https://www.linkedin.com/in/xuan-lv-14016140/" style="color:white"
+                 target="_blank">Xuan Lv</a>
+            </div> -->
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="begin-adventure">
-        <div class="container">
-          <div class="title-heading pb-3">
-            <h1>Adventure begins</h1>
-          </div>
+    <section class="begin-adventure">
+      <div class="container">
+        <div class="title-heading pb-3">
+          <h1>FAQ</h1>
+        </div>
 
-          <div class="row" style="padding-bottom: 2.5rem">
-            <div class="col-lg-9 mx-auto">
-              <!-- Accordion -->
-              <div id="accordionExample" class="accordion shadow">
+        <div class="row" style="padding-bottom: 2.5rem">
+          <div class="col-lg-9 mx-auto">
+            <!-- Accordion -->
+            <div id="accordionExample" class="accordion shadow">
 
-                <!-- Accordion item 1 -->
-                <div class="card">
-                  <div id="headingOne" class="card-header bg-white shadow-sm border-0">
-                    <h6 class="mb-0 font-weight-bold"><a aria-controls="collapseOne" aria-expanded="false" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2"
-                                                         data-target="#collapseOne" data-toggle="collapse"
-                                                         href="#">Question
-                      #1: Linguistics</a></h6>
-                  </div>
-                  <div id="collapseOne" aria-labelledby="headingOne" class="collapse" data-parent="#accordionExample">
-                    <div class="card-body p-5">
-                      <p class="font-weight-light m-0">Ecolinguistics explores the role of language in the life-sustaining
-                        interactions of humans, other species and the physical environment. The first aim is to develop
-                        linguistic theories which see humans not only as part of society, but also as part of the larger
-                        ecosystems that life depends on. The second aim is to show how linguistics can be used to address
-                        key ecological issues, from climate change and biodiversity loss to environmental justice.</p>
-                    </div>
+              <!-- Accordion item 1 -->
+              <div class="card">
+                <div id="headingOne" class="card-header bg-white shadow-sm border-0">
+                  <h6 class="mb-0 font-weight-bold"><a aria-controls="collapseOne" aria-expanded="false"
+                                                       class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2"
+                                                       data-target="#collapseOne" data-toggle="collapse"
+                                                       href="#">How do I use the BIM assistant?</a></h6>
+                </div>
+                <div id="collapseOne" aria-labelledby="headingOne" class="collapse" data-parent="#accordionExample">
+                  <div class="card-body p-5">
+                    <p class="font-weight-light m-0">It's easy! If you haven't created an account yet, go to our
+                      <nuxt-link to="/sign_up">sign up</nuxt-link>
+                      page and make an account. After that, simply create a new project, upload your 3D models, and
+                      start using our assistant!
+                    </p>
                   </div>
                 </div>
+              </div>
 
-                <!-- Accordion item 2 -->
-                <div class="card">
-                  <div id="headingTwo" class="card-header bg-white shadow-sm border-0">
-                    <h6 class="mb-0 font-weight-bold"><a aria-controls="collapseTwo" aria-expanded="false" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2"
-                                                         data-target="#collapseTwo" data-toggle="collapse"
-                                                         href="#">Question
-                      #2: Cognitive Science</a></h6>
-                  </div>
-                  <div id="collapseTwo" aria-labelledby="headingTwo" class="collapse" data-parent="#accordionExample">
-                    <div class="card-body p-5">
-                      <p class="font-weight-light m-0">Cognitive scientists study memory just as psychologists do, but
-                        tend to focus more on how memory bears on cognitive processes, and the interrelationship between
-                        cognition and memory. One example of this could be, what mental processes does a person go through
-                        to retrieve a long-lost memory? Or, what differentiates between the cognitive process of
-                        recognition (seeing hints of something before remembering it, or memory in context) and recall
-                        (retrieving a memory, as in "fill-in-the-blank")?</p>
-                    </div>
+              <!-- Accordion item 2 -->
+              <div class="card">
+                <div id="headingTwo" class="card-header bg-white shadow-sm border-0">
+                  <h6 class="mb-0 font-weight-bold"><a aria-controls="collapseTwo" aria-expanded="false"
+                                                       class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2"
+                                                       data-target="#collapseTwo" data-toggle="collapse"
+                                                       href="#">How does the BIM assistant work?</a></h6>
+                </div>
+                <div id="collapseTwo" aria-labelledby="headingTwo" class="collapse" data-parent="#accordionExample">
+                  <div class="card-body p-5">
+                    <p class="font-weight-light m-0">Proudly developed from the ground up with Nuxt.js and Vue.js, the
+                      BIM assistant uploads your 3D models to a secure bucket in Autodesk so you can access your
+                      projects from anywhere. Simply sign in to your account to access all of your projects.</p>
                   </div>
                 </div>
+              </div>
 
-                <!-- Accordion item 3 -->
-                <div class="card">
-                  <div id="headingThree" class="card-header bg-white shadow-sm border-0">
-                    <h6 class="mb-0 font-weight-bold"><a aria-controls="collapseThree" aria-expanded="false" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2"
-                                                         data-target="#collapseThree" data-toggle="collapse"
-                                                         href="#">Question
-                      #3: Quantum Computing</a></h6>
-                  </div>
-                  <div id="collapseThree" aria-labelledby="headingThree" class="collapse" data-parent="#accordionExample">
-                    <div class="card-body p-5">
-                      <p class="font-weight-light m-0">In the classical view, one entry would have a value of 1 (i.e. a
-                        100% probability of being in this state) and all other entries would be zero.
-                        In quantum mechanics, probability vectors are generalized to density operators. This is the
-                        technically rigorous mathematical foundation for quantum logic gates, but the intermediate quantum
-                        state vector formalism is usually introduced first because it is conceptually simpler.</p>
-                    </div>
+              <!-- Accordion item 3 -->
+              <div class="card">
+                <div id="headingThree" class="card-header bg-white shadow-sm border-0">
+                  <h6 class="mb-0 font-weight-bold"><a aria-controls="collapseThree" aria-expanded="false"
+                                                       class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2"
+                                                       data-target="#collapseThree" data-toggle="collapse"
+                                                       href="#">Is the BIM assistant free to use?</a></h6>
+                </div>
+                <div id="collapseThree" aria-labelledby="headingThree" class="collapse" data-parent="#accordionExample">
+                  <div class="card-body p-5">
+                    <p class="font-weight-light m-0">During development, the assistant will be free to use. Since it's
+                      still under construction things may change or break frequently. Rest assured, once the BIM
+                      assistant has been (mostly) developed, we will share more information with you.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="adventure-grid text-center">
-            <!-- Grid item #1-->
-            <div class="adventure-grid-item">
-              <p>Insert info</p>
-            </div>
-            <!-- Grid item #2-->
-            <div class="adventure-grid-item">
-              <p>Insert info</p>
-            </div>
+        <div class="adventure-grid text-center">
+          <!-- Grid item #1-->
+          <div class="adventure-grid-item">
+            <p>Under construction.</p>
+          </div>
+          <!-- Grid item #2-->
+          <div class="adventure-grid-item">
+            <p>Thanks for using the BIM assistant!</p>
           </div>
         </div>
-      </section>
-      <footer style="background-color: #7d88b5">
-        <p style="font-size: 1rem; color: white">&copy; 2020 BIM Assistant. All rights reserved.</p>
-      </footer>
-    </div>
+      </div>
+    </section>
+    <footer style="background-color: #7d88b5">
+      <p style="font-size: 1rem; color: white">&copy; 2020 BIM Assistant. All rights reserved.</p>
+    </footer>
+  </div>
 </template>
 
 <script>
