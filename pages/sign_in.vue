@@ -43,7 +43,7 @@
             </div>
 
             <div class="w-100 text-center d-flex justify-content-center">
-              <button @click="google_sign_in" class="google-btn btn btn-block btn-light mx-2" style="position: relative; padding-left: 2em; margin-bottom: 1.1em"><ion-icon name="logo-google" style="position: absolute; left: 1.4em; top: 1em; display: block"></ion-icon> Continue with Google</button>
+              <button @click="google_sign_in" class="google-btn btn btn-block btn-light mx-2" style="position: relative; padding-left: 2em; margin-bottom: 1.1em" type="button"><ion-icon name="logo-google" style="position: absolute; left: 1.4em; top: 1em; display: block"></ion-icon> Continue with Google</button>
             </div>
           </form>
         </div>
