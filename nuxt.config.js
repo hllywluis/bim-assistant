@@ -16,6 +16,11 @@ module.exports = {
     bootstrapVue: {
         icons: true
     },
+    loading: {
+        color: '#29d',
+        continuous: true,
+        throttle: 0
+    },
     firebase: {
         config: {
             apiKey: "AIzaSyCzGu7JgGFSoYV4jKsOafTs7S3_1jJtoVE",
