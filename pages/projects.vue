@@ -86,6 +86,9 @@ export default {
   components: {
     navbar
   },
+  head: {
+    title: 'BIM - Projects'
+  },
   computed: {
     user() {
       return this.$store.state.user.user

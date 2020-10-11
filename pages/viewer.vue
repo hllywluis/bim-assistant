@@ -50,20 +50,8 @@ export default {
   components: {
     navbar
   },
-  head() {
-    return {
-      script: [
-        {
-          src: "https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"
-        }
-      ],
-      link: [
-        {
-          rel: "stylesheet",
-          href: "https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css"
-        }
-      ]
-    }
+  head: {
+    title: 'BIM - Viewer'
   },
   data() {
     return {

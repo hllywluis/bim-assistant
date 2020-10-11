@@ -22,7 +22,6 @@ import navbar from "@/components/navbar";
 export default {
   name: "profile",
   components: {navbar},
-
   computed: {
     user() {
       return this.$store.state.user.user
