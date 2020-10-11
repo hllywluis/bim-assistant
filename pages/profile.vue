@@ -6,10 +6,12 @@
         <h1 class="text-center text-md-left">My Profile</h1>
       </div>
     </section>
-        <h5>Hi {{userName}}! You are a: {{ userRole }} for '{{companyName}}'.</h5>
-        <h5>Phone: {{phone}}</h5>
-        <h5>Email: {{userEmail}}</h5>
-        <div v-if="userRole==='Construction Manager'">
+    <h5>Username: {{ userName || 'No Name Set' }}</h5>
+    <h5>Company: {{ companyName || 'No Company Name Set' }}</h5>
+    <h5>Role: {{ userRole }}</h5>
+    <h5>Phone: {{ phone || 'No Phone Number Set' }}</h5>
+    <h5>Email: {{ userEmail || 'No Email Set' }}</h5>
+    <div v-if="userRole==='Construction Manager'">
     </div>
   </div>
 </template>
@@ -81,11 +83,11 @@ export default {
 }
 
 @-webkit-keyframes shake {
-  from{
+  from {
     -webkit-transform: rotate(3deg);
   }
 
-  to{
+  to {
     -webkit-transform: rotate(-3deg);
     -webkit-transform-origin: center center;
   }
@@ -97,6 +99,7 @@ export default {
   .background-picture::before {
     height: 6.5rem;
   }
+
   .main-message {
     transform: translateY(50%);
   }
@@ -107,12 +110,15 @@ export default {
   .background-picture {
     height: 22.7rem;
   }
+
   .background-picture::before {
     height: 9.7rem;
   }
+
   .main-message {
     transform: translateY(30%);
   }
+
   .main-message h1 {
     font-size: 3.0rem;
   }
@@ -123,12 +129,15 @@ export default {
   .background-picture {
     height: 23.7rem;
   }
+
   .background-picture::before {
     height: 13.7rem;
   }
+
   .main-message h1 {
     font-size: 2.7rem;
   }
+
   .main-message h5 {
     font-size: 1.2rem;
   }
