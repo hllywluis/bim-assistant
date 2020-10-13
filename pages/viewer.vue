@@ -53,9 +53,19 @@ export default {
   head: {
     title: 'BIM - Viewer'
   },
+  async asyncData({ $axios }) {
+    let bucketURN
+    let objectURN
+    await $axios.$get('http://localhost:3000/api/buckets').then(res => {
+      bucketURN = res.body.items[6].bucketKey
+    })
+    await $axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
+      objectURN = Buffer.from(res.body.items[0].objectId).toString('base64')
+    })
+    return { myObjectUrn: objectURN }
+  },
   data() {
     return {
-      myObjectUrn: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6MGQ5YjI0NzQtMDY3Zi00Y2VmLWI2MWYtZjg4OTYwNDkxNjFkLWJrLTEtcG4tMi9SZXZpdCUyME1vZGVsJTIwMS5ydnQ',
       myToken: '',
       tokenPkg: {},
       treeNodePkg: {},

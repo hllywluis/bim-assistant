@@ -7,13 +7,12 @@ const DerivativesAPI = new ForgeSDK.DerivativesApi()
 let bucket
 let bucketArray = []
 let objectArray = []
-let autoRefresh = true
 
 const oAuth2Legged = new ForgeSDK.AuthClientTwoLegged(config.consumerKey, config.consumerSecret, [
     'data:read',
     'data:write',
     'bucket:read'
-], autoRefresh)
+], true)
 
 oAuth2Legged.authenticate().then(function (credentials) {
     BucketsAPI.getBuckets({}, oAuth2Legged, credentials).then(function (buckets) {
