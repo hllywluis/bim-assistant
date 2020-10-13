@@ -5,13 +5,13 @@
     <div class="h-100 d-flex row justify-content-center align-items-center mx-auto">
       <div class="card card-signIn">
         <div class="card-body">
-          <div class="container main-message w-100">
+          <div class="container main-message" style="padding: 0">
             <h1 class="text-center text-md-center" style="color: black; text-shadow: none; margin: 0; font-size: 2.5rem">Sign In</h1>
           </div>
 
           <form class="form-group w-100" style="margin-bottom: 0">
             <div class="form-group" style="position: relative; display: inline">
-                  <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 1.1em; display: block">
+                  <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 1.2em; display: block">
                     <ion-icon name="mail"></ion-icon>
                   </span>
               <input type="email" v-model="userEmail" class="form-control" id="userEmail" aria-describedby="emailHelp"
@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-group" style="position: relative; display: inline">
-                  <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.9em; display: block">
+                  <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 3em; display: block">
                     <ion-icon name="lock-closed"></ion-icon>
                   </span>
               <input type="password" v-model="userPassword" class="form-control" id="userPassword"
@@ -132,6 +132,7 @@ export default {
   background-color: transparent;
   border: none;
   width: 100%;
+  box-sizing: border-box;
   border-radius: 0;
   border-bottom: 2px solid black;
   min-width: 35vw;

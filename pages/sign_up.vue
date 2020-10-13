@@ -4,7 +4,7 @@
     <div class="h-100 min-vh-100 d-flex row justify-content-center align-items-center mx-auto" style="margin-bottom: 4.5em; margin-top: 2em">
       <div class="card card-signUp align-self-center">
         <div class="card-body">
-          <div class="container main-message w-100">
+          <div class="container main-message" style="padding: 0">
             <h1 class="text-center text-md-center" style="color: black; text-shadow: none; margin: 0; font-size: 2.5rem">Sign Up</h1>
           </div>
 
@@ -184,6 +184,7 @@ select:invalid, select option[value=""] {
   background-color: transparent;
   border: none;
   width: 100%;
+  box-sizing: border-box;
   border-radius: 0;
   border-bottom: 2px solid black;
   color: black !important;
