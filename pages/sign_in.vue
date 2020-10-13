@@ -36,7 +36,7 @@
             </div>
 
             <!-- Divider Text -->
-            <div class="form-group col-lg-12 mx-auto d-flex justify-content-center align-items-center" style="margin-bottom: 0">
+            <div class="form-group col-lg-12 mx-auto d-flex justify-content-center align-items-center" style="margin-bottom: 0; padding: 0">
               <div class="border-bottom w-50 ml-5"></div>
               <span class="px-2 small text-muted font-weight-bold">OR</span>
               <div class="border-bottom w-50 mr-5"></div>
