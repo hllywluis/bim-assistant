@@ -10,42 +10,42 @@
 
           <form class="justify-content-center w-100 mx-auto my-0">
             <div class="form-group" style="position: relative; display: inline">
-          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 1.1em; display: block">
+          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 0.1em; display: block">
             <ion-icon name="person"></ion-icon>
           </span>
               <input type="text" v-model="username" class="form-control" id="username" aria-describedby="usernameHelp"
                      placeholder="Username *" title="Username" style="padding-left: 2.5em" required>
             </div>
             <div class="form-group" style="position: relative; display: inline">
-          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 3em; display: block">
+          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.1em; display: block">
             <ion-icon name="mail"></ion-icon>
           </span>
               <input type="email" v-model="userEmail" class="form-control" id="userEmail" aria-describedby="emailHelp"
                      placeholder="Email Address *" title="Email Address" style="padding-left: 2.5em" required autofocus>
             </div>
             <div class="form-group" style="position: relative; display: inline">
-          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.9em; display: block">
+          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.1em; display: block">
             <ion-icon name="lock-closed"></ion-icon>
           </span>
               <input type="password" v-model="userPassword" class="form-control" id="userPassword" aria-describedby="passwordHelp"
                      placeholder="Password *" title="Password" style="padding-left: 2.5em" required>
             </div>
             <div class="form-group" style="position: relative; display: inline">
-          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.9em; display: block">
+          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.1em; display: block">
             <ion-icon name="lock-closed"></ion-icon>
           </span>
               <input type="password" v-model="userPasswordConfirmation" class="form-control" id="userPasswordConfirmation" aria-describedby="passwordConfirmationHelp"
                      placeholder="Confirm Password *" title="Confirm Password" style="padding-left: 2.5em" required>
             </div>
             <div class="form-group" style="position: relative; display: inline">
-          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.9em; left: 0.1em; display: block">
+          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.1em; left: 0.1em; display: block">
             <ion-icon name="business"></ion-icon>
           </span>
               <input type="text" v-model="companyName" class="form-control" id="companyName" aria-describedby="companyNameHelp"
                      placeholder="Company Name *" title="Company Name" style="padding-left: 2.5em" required>
             </div>
             <div class="form-group" style="position: relative; display: inline">
-          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 3em; left: 0.1em; display: block">
+          <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 2.1em; left: 0.1em; display: block">
             <ion-icon name="call"></ion-icon>
           </span>
               <input type="tel" v-model="userPhoneNumber" class="form-control" id="userPhoneNumber" aria-describedby="userPhoneNumberHelp"
