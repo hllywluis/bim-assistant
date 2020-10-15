@@ -22,8 +22,6 @@
             <!-- 2D Modeling Section -->
             <div class="2D-modeling bg-light border" style="height: 75vh">
               2D-Modeling goes here <span class="badge bg-info ml-2">New</span>
-              <!-- TODO: This breaks the viewer page, wait to implement this. -->
-<!--              <forge-vuer/> &lt;!&ndash; TODO: Implement 2D forge-vuer using 2D urn. &ndash;&gt;-->
             </div>
             <br>
             <df-messenger
@@ -55,9 +53,13 @@ export default {
   },
   async asyncData({ $axios }) {
     let bucketURN
+    let bucketDetails
     let objectURN
     await $axios.$get('http://localhost:3000/api/buckets').then(res => {
-      bucketURN = res.body.items[6].bucketKey
+      bucketURN = res.body.items[8].bucketKey
+    })
+    await $axios.get(`http://localhost:3000/api/bucketDetails/${bucketURN}`).then(res => {
+      bucketDetails = res.body
     })
     await $axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
       objectURN = Buffer.from(res.body.items[0].objectId).toString('base64')

@@ -12,7 +12,8 @@ module.exports = {
     serverMiddleware: [
         {path: '/api/token', handler: '~/api/getToken.js'},
         {path: '/api/buckets', handler: '~/api/getBucket.js'},
-        {path: '/api/objects', handler: '~/api/getBucketObjects.js'}
+        {path: '/api/objects', handler: '~/api/getBucketObjects.js'},
+        {path: '/api/bucketDetails', handler: '~/api/getBucketDetails.js'}
     ],
     bootstrapVue: {
         icons: true

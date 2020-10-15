@@ -1,6 +1,6 @@
-const ForgeSDK = require('forge-apis')
-const config = require('../config/config')
-const ObjectsAPI = new ForgeSDK.ObjectsApi()
+import ForgeSDK from 'forge-apis'
+import config from '../config/config'
+const BucketsAPI = new ForgeSDK.BucketsApi()
 
 const oAuth2Legged = new ForgeSDK.AuthClientTwoLegged(config.consumerKey, config.consumerSecret, [
     'data:read',
@@ -9,12 +9,12 @@ const oAuth2Legged = new ForgeSDK.AuthClientTwoLegged(config.consumerKey, config
 ], true)
 
 export default {
-    path: '/api/objects',
+    path: '/api/bucketDetails',
     handler(req, res) {
         let bucketURN = req.url.replace('/', '')
         oAuth2Legged.authenticate().then(credentials => {
-            ObjectsAPI.getObjects(bucketURN, {}, oAuth2Legged, credentials).then(objects => {
-                res.end(JSON.stringify(objects))
+            BucketsAPI.getBucketDetails(bucketURN, oAuth2Legged, credentials).then(details => {
+                res.end(JSON.stringify(details))
             })
         })
     }
