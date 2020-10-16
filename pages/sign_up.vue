@@ -171,7 +171,7 @@ select:invalid, select option[value=""] {
   vertical-align: middle;
   background-color: transparent !important;
   border: 0 !important;
-  top: 0.27em;
+  top: 0.26em;
 }
 
 .icon-business, .icon-call, .icon-briefcase {

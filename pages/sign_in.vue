@@ -10,23 +10,23 @@
           </div>
 
           <form class="form-group w-100" style="margin-bottom: 0">
-            <div class="form-group" style="position: relative; display: inline">
-                  <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 1.2em; display: block">
+            <div class="form-group" style="position: relative">
+                  <span class="input-group-text icon">
                     <ion-icon name="mail"></ion-icon>
                   </span>
               <input type="email" v-model="userEmail" class="form-control" id="userEmail" aria-describedby="emailHelp"
                      placeholder="Email Address *" title="Email Address" style="padding-left: 2.5em" required autofocus>
             </div>
 
-            <div class="form-group" style="position: relative; display: inline">
-                  <span class="input-group-text bg-transparent border-0" style="position: absolute; top: 3em; display: block">
+            <div class="form-group" style="position: relative">
+                  <span class="input-group-text icon">
                     <ion-icon name="lock-closed"></ion-icon>
                   </span>
               <input type="password" v-model="userPassword" class="form-control" id="userPassword"
                      aria-describedby="passwordHelp" title="Password" placeholder="Password *" style="padding-left: 2.5em" required>
             </div>
 
-            <div class="custom-control custom-checkbox" style="padding-top: 1em">
+            <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="customCheck">
               <label class="custom-control-label" for="customCheck">Remember me</label>
             </div>
@@ -108,6 +108,15 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  position: absolute;
+  display: inline-flex;
+  vertical-align: middle;
+  background-color: transparent !important;
+  border: 0 !important;
+  top: 0.26em;
+}
+
 .card-signIn {
   border-radius: 1rem;
   border: 0;
