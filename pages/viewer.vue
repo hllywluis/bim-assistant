@@ -6,7 +6,7 @@
         <div class="row d-inline-flex w-100 ">
 
           <!-- 3D Modeling Section -->
-          <div class="3D-modeling col bg-transparent border-right" style="height: 100vh">
+          <div class="3D-modeling col bg-transparent border-right" style="height: 100vh; padding: 0">
             <forge-vuer
                 :get-access-token="handleAccessToken"
                 :urn="myObjectUrn"
@@ -20,7 +20,6 @@
           </div>
         </div>
 
-          <!-- Left Screen Section -->
           <div class="col-lg-4">
             <br>
             <df-messenger
@@ -31,6 +30,11 @@
                 chat-icon=""
             ></df-messenger>
           </div>
+
+        <!-- Footer -->
+        <footer>
+          <p style="font-size: 1rem">&copy; 2020 BIM Assistant. All rights reserved.</p>
+        </footer>
       </div>
     </div>
   </client-only>
@@ -103,7 +107,6 @@ export default {
     })(document, window.kommunicate || {});
   }
 }
-
 </script>
 
 <style scoped>
@@ -133,5 +136,15 @@ df-messenger {
   --df-messenger-font-color: white;
   --df-messenger-send-icon: #878fac;
   --df-messenger-user-message: #4B7AA1;
+}
+
+footer {
+  padding: 2rem 0 1rem 0;
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 0;
 }
 </style>

@@ -166,8 +166,10 @@
         </div>
       </div>
     </section>
-    <footer style="background-color: #7d88b5">
-      <p style="font-size: 1rem; color: white">&copy; 2020 BIM Assistant. All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer>
+      <p style="font-size: 1rem">&copy; 2020 BIM Assistant. All rights reserved.</p>
     </footer>
   </div>
 </template>
@@ -454,10 +456,10 @@ img {
 }
 
 footer {
-  padding: 2rem 0;
-  background-color: #d7d4ed;
+  padding: 1rem 0;
+  background-color: #7D88B5;
   text-align: center;
-  color: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 
 footer p {

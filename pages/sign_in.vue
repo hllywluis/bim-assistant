@@ -49,6 +49,10 @@
         </div>
       </div>
     </div>
+
+    <footer>
+      <p style="font-size: 1rem">&copy; 2020 BIM Assistant. All rights reserved.</p>
+    </footer>
   </div>
 </template>
 
@@ -177,6 +181,16 @@ export default {
 
 .google-btn:focus {
   outline: none;
+}
+
+footer {
+  padding: 1rem 0;
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 0;
 }
 
 @-webkit-keyframes shake {
