@@ -1,8 +1,8 @@
 <template>
-  <div class="signIn min-vh-100">
+  <div class="signIn">
     <navbar :on_sign_in="true"></navbar>
 
-    <div class="h-100 d-flex row justify-content-center align-items-center mx-auto">
+    <div class="h-100 min-vh-100 d-flex row justify-content-center align-items-center mx-auto">
       <div class="card card-signIn">
         <div class="card-body">
           <div class="container main-message" style="padding: 0">

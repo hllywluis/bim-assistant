@@ -1,15 +1,12 @@
 <template>
   <client-only>
     <div class="forgeViewer">
-      <navbar :on_viewer="true" class="py-0"
-              style="background-color: rgb(84,97,164); margin-bottom: 2rem; opacity: 50%"></navbar>
-      <div class="container-fluid text-center">
+      <navbar :on_viewer="true" class="py-0"></navbar>
+      <div class="container-fluid text-center" style="padding: 0">
         <div class="row d-inline-flex w-100 ">
 
-          <!-- Left Screen Section -->
           <!-- 3D Modeling Section -->
-          <div class="3D-modeling bg-light mb-4 border col-lg-8" style="height: 85.5vh">
-            3D-Modeling goes here <span class="badge bg-info ml-2">New</span>
+          <div class="3D-modeling col bg-transparent border-right" style="height: 100vh">
             <forge-vuer
                 :get-access-token="handleAccessToken"
                 :urn="myObjectUrn"
@@ -17,12 +14,14 @@
             />
           </div>
 
+          <!-- 2D Modeling Section -->
+          <div class="2D-modeling col bg-light border-left" style="height: 100vh">
+            2D-Modeling goes here <span class="badge bg-info ml-2">New</span>
+          </div>
+        </div>
+
           <!-- Left Screen Section -->
           <div class="col-lg-4">
-            <!-- 2D Modeling Section -->
-            <div class="2D-modeling bg-light border" style="height: 75vh">
-              2D-Modeling goes here <span class="badge bg-info ml-2">New</span>
-            </div>
             <br>
             <df-messenger
                 allow="microphone"
@@ -32,7 +31,6 @@
                 chat-icon=""
             ></df-messenger>
           </div>
-        </div>
       </div>
     </div>
   </client-only>
@@ -109,6 +107,14 @@ export default {
 </script>
 
 <style scoped>
+.forgeViewer {
+  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%) no-repeat center fixed !important;
+  overflow: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
 
 iframe {
   border: 10px;
@@ -128,22 +134,4 @@ df-messenger {
   --df-messenger-send-icon: #878fac;
   --df-messenger-user-message: #4B7AA1;
 }
-
-.btn {
-  width: 15em;
-  border-color: #e5e5e5;
-}
-
-.btn:hover {
-  background-color: #e5e5e5 !important;
-  color: black;
-}
-
-.icon:hover {
-  color: #fff;
-  background-color: #dc3545;
-  transition: all 0.3s;
-  border: #dc3545;
-}
-
 </style>

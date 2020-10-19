@@ -180,7 +180,7 @@ select:invalid, select option[value=""] {
 
 .icon-briefcase {
   bottom: 0;
-  top: 1.8em;
+  top: 1.8em !important;
 }
 
 .signUp {
