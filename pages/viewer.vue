@@ -3,33 +3,53 @@
     <div class="forgeViewer">
       <navbar :on_viewer="true" class="py-0"></navbar>
       <div class="container-fluid text-center" style="padding: 0">
-        <div class="row d-inline-flex w-100 ">
+        <div class="row d-inline-flex w-100">
+
+          <!-- Tree Menu for Fle Browsing -->
+          <div class="2D-modeling col-2 bg-light border-left" style="height: 92vh">
+            Tree Menu for File Browsing <span class="badge bg-info ml-2 my-4">New</span>
+          </div>
 
           <!-- 3D Modeling Section -->
-          <div class="3D-modeling col bg-transparent border-right" style="height: 100vh; padding: 0">
+          <div class="3D-modeling col bg-transparent border-right p-0 m-0" style="height: 92vh">
             <forge-vuer
+                :extensions="extensions"
                 :get-access-token="handleAccessToken"
                 :urn="myObjectUrn"
-                :extensions="extensions"
             />
           </div>
 
-          <!-- 2D Modeling Section -->
-          <div class="2D-modeling col bg-light border-left" style="height: 100vh">
-            2D-Modeling goes here <span class="badge bg-info ml-2">New</span>
+          <div class="col-2 p-0 m-0 mr-4">
+            <!-- 2D Modeling Section -->
+            <div class="2D-modeling col bg-light border-left" style="height: 46vh">
+              2D-Modeling <span class="badge bg-info ml-2 my-4">New</span>
+            </div>
+            <!-- 2D Modeling Section -->
+            <div class="2D-modeling col bg-light border-left" style="height: 46vh">
+              Utility Graphs <span class="badge bg-info ml-2 my-4">New</span>
+
+              <!-- Utility Buttons Grid -->
+              <div class="utility row d-flex justify-content-center">
+                <a class="btn m-3" href="mailto: abc@example.com" style="width: 6rem">Email</a>
+                <a class="btn m-3" href="#" style="width: 6rem">Screenshot</a>
+                <a class="btn m-3" href="#" style="width: 6rem">Graph</a>
+                <a class="btn m-3" href="#" style="width: 6rem">Bar Chart</a>
+              </div>
+            </div>
           </div>
+
         </div>
 
-          <div class="col-lg-4">
-            <br>
-            <df-messenger
-                allow="microphone"
-                chat-title="BIM Assistant"
-                agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"
-                language-code="en"
-                chat-icon=""
-            ></df-messenger>
-          </div>
+        <!--DialogFlow Chat-->
+        <div>
+          <df-messenger
+              agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"
+              allow="microphone"
+              chat-icon="favicon.ico"
+              chat-title="BIM Assistant"
+              language-code="en"
+          ></df-messenger>
+        </div>
 
         <!-- Footer -->
         <footer>
@@ -44,6 +64,7 @@
 import navbar from "@/components/navbar";
 import myAwesomeExtension from "@/components/forge/extensions/myAwesomeExtension";
 import myCustomToolbar from "@/components/forge/extensions/myCustomToolbar";
+import '@/assets/stylesheets/viewer.css';
 
 export default {
   name: "viewer",
@@ -53,7 +74,7 @@ export default {
   head: {
     title: 'BIM - Viewer'
   },
-  async asyncData({ $axios }) {
+  async asyncData({$axios}) {
     let bucketURN
     let bucketDetails
     let objectURN
@@ -66,7 +87,7 @@ export default {
     await $axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
       objectURN = Buffer.from(res.body.items[0].objectId).toString('base64')
     })
-    return { myObjectUrn: objectURN }
+    return {myObjectUrn: objectURN}
   },
   data() {
     return {
@@ -81,7 +102,7 @@ export default {
     }
   },
   methods: {
-    handleAccessToken: async function(onSuccess) {
+    handleAccessToken: async function (onSuccess) {
       await this.$axios.$get('http://localhost:3000/api/token').then(res => {
         onSuccess(res.access_token, res.expires_in)
       }).catch(err => {
@@ -110,41 +131,5 @@ export default {
 </script>
 
 <style scoped>
-.forgeViewer {
-  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%) no-repeat center fixed !important;
-  overflow: auto;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
 
-iframe {
-  border: 10px;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  border-radius: 12px;
-  -moz-box-shadow: 4px 4px 14px #000;
-  -webkit-box-shadow: 4px 4px 14px #000;
-  box-shadow: 4px 4px 14px #000;
-}
-
-df-messenger {
-  --df-messenger-bot-message: #878fac;
-  --df-messenger-button-titlebar-color: #818FB7;
-  --df-messenger-chat-background-color: #fafafa;
-  --df-messenger-font-color: white;
-  --df-messenger-send-icon: #878fac;
-  --df-messenger-user-message: #4B7AA1;
-}
-
-footer {
-  padding: 2rem 0 1rem 0;
-  color: white;
-  text-align: center;
-}
-
-footer p {
-  margin-bottom: 0;
-}
 </style>
