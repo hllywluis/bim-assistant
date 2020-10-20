@@ -26,7 +26,7 @@
             </div>
             <!-- 2D Modeling Section -->
             <div class="2D-modeling col bg-light border-left" style="height: 46vh">
-              Utility Graphs <span class="badge bg-info ml-2 my-4">New</span>
+              Utility <span class="badge bg-info ml-2 my-4">New</span>
 
               <!-- Utility Buttons Grid -->
               <div class="utility row d-flex justify-content-center">

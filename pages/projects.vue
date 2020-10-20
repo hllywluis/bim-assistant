@@ -10,47 +10,46 @@
       </div>
     </section>
 
-    <div class="projects-list container-fluid mt-3">
-      <button v-if="!on_delete && !on_create" v-on:click="on_create=true" class="btn btn-dark mx-auto text-center"
-              type="button">Create New Project
+    <div class="projects-list container justify-content-center row d-flex">
+      <button v-if="!on_delete && !on_create" class="btn btn-dark mx-3 text-center" type="button"
+              v-on:click="on_create=true">Create New Project
       </button>
-      <div class="form-group text-center" v-show="on_create">
-        <input v-model="project_name" type="text" id="newProjectName" placeholder="New Project Name *"
-               class="form-control align-content-center" style="width: 50%;" required>
+      <div v-show="on_create" class="form-group text-center align-content-center mt-3">
+        <input id="newProjectName" v-model="project_name" class="form-control" placeholder="New Project Name *"
+               required style="min-width: 25vw;" type="text">
         <div>
-          <button v-on:click="new_project(project_name)" class="btn btn-dark mx-auto text-center" type="button">Submit
+          <button class="btn btn-dark mx-3 text-center " style="width: 7rem" type="button"
+                  v-on:click="new_project(project_name)">Submit
+          </button>
+
+          <button v-if="on_create && !on_delete" class="btn btn-danger mx-3 text-center" style="width: 7rem"
+                  type="button"
+                  v-on:click="on_create=false">Cancel
           </button>
         </div>
-        <button v-if="on_create && !on_delete" v-on:click="on_create=false" class="btn btn-dark mx-auto text-center"
-                type="button">Cancel
-        </button>
       </div>
 
-      <div v-for="(project, idx) of project_list" :key="idx">
-        <nuxt-link v-if="!on_create && !on_delete" to="viewer" class="btn btn-light mx-auto text-center">{{
-            project
-          }}
-        </nuxt-link>
-      </div>
-
-      <button v-if="!on_delete && !on_create && project_list.length>0" v-on:click="on_delete=true"
-              class="btn btn-danger mx-auto text-center" type="button">Delete Project
+      <button v-if="!on_delete && !on_create && project_list.length>0" class="btn btn-danger mx-3 text-center"
+              type="button" v-on:click="on_delete=true">Delete Project
       </button>
 
-      <div class="form-group" v-show="on_delete">
+      <div v-show="on_delete" class="form-group">
         <div v-for="(project, idx) of project_list" :key="idx">
-          <button type="button" class="for-hover btn btn-dark btn-danger mx-auto text-center" data-toggle="modal"
-                  :data-target="'#deleteConfirmModalFor' + idx">
+          <button :data-target="'#deleteConfirmModalFor' + idx"
+                  class="for-hover btn btn-danger mx-auto text-center" data-toggle="modal"
+                  type="button">
             {{ project }}
           </button>
 
-          <div class="modal fade" :id="'deleteConfirmModalFor' + idx" tabindex="-1" role="dialog"
-               aria-labelledby="deleteConfirmModal" aria-hidden="true">
+          <div :id="'deleteConfirmModalFor' + idx" aria-hidden="true" aria-labelledby="deleteConfirmModal"
+               class="modal fade"
+               role="dialog" style="top: 40%"
+               tabindex="-1">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="deleteConfirmLabel">Are you sure you'd like to delete {{ project }}?</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <h5 id="deleteConfirmLabel" class="modal-title">Are you sure you'd like to delete {{ project }}?</h5>
+                  <button aria-label="Close" class="close" data-dismiss="modal" type="button">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -58,11 +57,11 @@
                   <strong class="my-auto">This action cannot be undone.</strong>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary my-auto" data-dismiss="modal"
-                          style="width: 40% !important;">Cancel
+                  <button class="btn btn-secondary my-auto" data-dismiss="modal" style="width: 40% !important;"
+                          type="button">Cancel
                   </button>
-                  <button type="button" class="btn btn-danger my-auto" @click="delete_project(project)"
-                          style="width: 40% !important;" data-dismiss="modal">Delete {{ project }}
+                  <button class="btn btn-danger my-auto" data-dismiss="modal" style="width: 40% !important;"
+                          type="button" @click="delete_project(project)">Delete {{ project }}
                   </button>
                 </div>
               </div>
@@ -70,11 +69,29 @@
           </div>
           <!--          <h1 v-if="!on_create && on_delete" @click="delete_project(project)" class="for-hover btn btn-dark btn-danger mx-auto text-center">{{ project }}</h1>-->
         </div>
-        <button v-if="!on_create && on_delete" v-on:click="on_delete=false" class="btn btn-dark mx-auto text-center"
-                type="button">Cancel
+        <button v-if="!on_create && on_delete" class="btn btn-dark mx-auto text-center" type="button"
+                v-on:click="on_delete=false">Cancel
         </button>
       </div>
+
+      <!--Displays list of projects in form of cards-->
+      <div v-if="!on_create && !on_delete"
+           class="container align-content-center justify-content-center d-flex">
+        <div v-for="(project, idx) of project_list" :key="idx" class="card m-3 col-2">
+          <nuxt-link class="card-title w-100 h-100 font-weight-bold" to="viewer">
+            <div class="card-body">
+              <h5 class="text-center">{{ project }}</h5>
+              <hr class="border-top"/>
+              <img alt="Project Image" class="img-responsive w-100 "
+                   src="../assets/images/house-3D-model.jpg" style="border-radius: 20px"/>
+              <p class="text-muted card-text mt-3" style="font-size: 18px">Description of the project. </p>
+            </div>
+          </nuxt-link>
+
+        </div>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -188,6 +205,26 @@ export default {
 
 .for-hover:hover {
   -webkit-animation: shake .3s ease-in-out .3s infinite alternate;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
+  border: 0;
+  transition: all .15s ease-in;
+  min-width: 250px !important;
+  min-height: 350px !important;
+}
+
+.card:hover {
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
+  text-decoration: none !important;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  text-decoration: none !important;
+  color: black;
 }
 
 @-webkit-keyframes shake {
