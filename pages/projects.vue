@@ -123,16 +123,17 @@ export default {
   methods: {
     // creates new project
     new_project: function () {
-      const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
+      const userdataRef = this.$fireStore.collection('buckets').doc(this.user.data.uid)
       userdataRef.get().then((docSnapshot) => {
         if (docSnapshot.exists) {
-          if (docSnapshot.get('projects')) {
-            let project_list = docSnapshot.get('projects')
+          if (docSnapshot.get('names')) {
+            let project_list = docSnapshot.get('names')
             // Checks for existing project with same name
             if (project_list.includes(this.project_name)) {
               alert("A project already exists with this name");
             } else {
               project_list.push(this.project_name)
+
               userdataRef.update({
                 projects: project_list
               })

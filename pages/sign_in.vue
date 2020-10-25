@@ -35,6 +35,10 @@
               <button @click="sign_in" class="btn btn-dark btn-primary btn-block mx-2" type="button">Sign In</button>
             </div>
 
+            <div class="w-100 text-center">
+              <button @click="forge_sign_in" class="btn btn-dark btn-primary btn-block mx-2" type="button">Forge Sign In</button>
+            </div>
+
             <!-- Divider Text -->
             <div class="form-group col-lg-12 mx-auto d-flex justify-content-center align-items-center" style="margin-bottom: 0; padding: 0">
               <div class="border-bottom w-50 ml-5"></div>
@@ -106,7 +110,12 @@ export default {
       this.$router.replace({name: 'index'})
       let provider = new this.$fireAuthObj.GoogleAuthProvider();
       this.$fireAuth.signInWithRedirect(provider)
+    },
+
+    forge_sign_in: function(){
+
     }
+
   }
 }
 </script>

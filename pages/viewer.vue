@@ -18,7 +18,7 @@
                 :urn="myObjectUrn"
             />
           </div>
-
+          <div></div>
           <div class="col-2 p-0 m-0 mr-4">
             <!-- 2D Modeling Section -->
             <div class="2D-modeling col bg-light border-left" style="height: 46vh">
@@ -70,6 +70,11 @@ export default {
   name: "viewer",
   components: {
     navbar
+  },
+  computed: {
+    user() {
+      return this.$store.state.user.user
+    }
   },
   head: {
     title: 'BIM - Viewer'
