@@ -50,11 +50,6 @@
               language-code="en"
           ></df-messenger>
         </div>
-
-        <!-- Footer -->
-        <footer>
-          <p style="font-size: 1rem">&copy; 2020 BIM Assistant. All rights reserved.</p>
-        </footer>
       </div>
     </div>
   </client-only>
