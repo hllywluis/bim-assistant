@@ -13,7 +13,9 @@ module.exports = {
         {path: '/api/token', handler: '~/api/getToken.js'},
         {path: '/api/buckets', handler: '~/api/getBucket.js'},
         {path: '/api/objects', handler: '~/api/getBucketObjects.js'},
-        {path: '/api/bucketDetails', handler: '~/api/getBucketDetails.js'}
+        {path: '/api/bucketDetails', handler: '~/api/getBucketDetails.js'},
+        {path: '/api/createBucket', handler: '~/api/createBucket.js'},
+        {path: '/api/deleteBucket', handler: '~/api/deleteBucket'}
     ],
     bootstrapVue: {
         icons: true

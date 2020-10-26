@@ -92,6 +92,7 @@ export default {
     await $axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
       objectURN = Buffer.from(res.body.items[0].objectId).toString('base64')
     })
+
     return {myObjectUrn: objectURN}
   },
   data() {

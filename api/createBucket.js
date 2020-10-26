@@ -11,14 +11,13 @@ const oAuth2Legged = new ForgeSDK.AuthClientTwoLegged(config.consumerKey, config
 ], true)
 
 let newBucket = new ForgeSDK.PostBucketsPayload()
-newBucket.bucketKey = ""
-newBucket.allow = new ForgeSDK.PostBucketsPayloadAllow(config.consumerKey, "full")
 newBucket.policyKey = ForgeSDK.PostBucketsPayload.PolicyKeyEnum.persistent
+newBucket.allow = [new ForgeSDK.PostBucketsPayloadAllow(config.consumerKey, ForgeSDK.PostBucketsPayloadAllow.AccessEnum.full)]
 
 export default {
     path: '/api/createBucket',
     handler(req, res) {
-
+        newBucket.bucketKey = req.url.replace('/', '')
         oAuth2Legged.authenticate().then(credentials => {
             BucketsAPI.createBucket(newBucket, {}, oAuth2Legged, credentials).then(bucket => {
                 res.end(JSON.stringify(bucket))
