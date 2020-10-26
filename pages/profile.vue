@@ -6,12 +6,36 @@
         <h1 class="text-center text-md-left">My Profile</h1>
       </div>
     </section>
-    <h5>Username: {{ userName || 'No Name Set' }}</h5>
-    <h5>Company: {{ companyName || 'No Company Name Set' }}</h5>
-    <h5>Role: {{ userRole }}</h5>
-    <h5>Phone: {{ phone || 'No Phone Number Set' }}</h5>
-    <h5>Email: {{ userEmail || 'No Email Set' }}</h5>
-    <div v-if="userRole==='Construction Manager'">
+    <div class="row container justify-content-center">
+
+      <!--Display User Info-->
+      <div class="m-3 p-5 bg-light" style="width: 30rem; height: 12rem; border-radius: 30px">
+        <h5><ion-icon name="person-outline"></ion-icon>{{ userName || 'No Name Set' }}</h5>
+        <h5><ion-icon name="business-outline"></ion-icon>{{ companyName || 'No Company Name Set' }}</h5>
+        <h5><ion-icon name="briefcase-outline"></ion-icon>{{ userRole }}</h5>
+        <h5><ion-icon name="call-outline"></ion-icon>{{ phone || 'No Phone Number Set' }}</h5>
+        <h5><ion-icon name="mail-outline"></ion-icon>{{ userEmail || 'No Email Set' }}</h5>
+        <div v-if="userRole==='Construction Manager'"></div>
+      </div>
+
+      <!--Display Projects under user-->
+      <div class="m-3 p-5 bg-light" style="width: 48rem; height: 26rem; border-radius: 30px">
+        <h5><ion-icon name="cube-outline"></ion-icon>List of Projects</h5>
+        <div v-if="!on_create && !on_delete"
+             class="align-content-center justify-content-center d-flex">
+          <div v-for="(project, idx) of project_list" :key="idx" class="card m-3 mt-5 col-2">
+            <nuxt-link class="card-title w-100 h-100 font-weight-bold" to="viewer">
+              <div class="card-body">
+                <h6 class="text-center mx-0">{{ project }}</h6>
+                <hr class="border-top"/>
+                <img alt="Project Image" class="img-responsive w-100 "
+                     src="../assets/images/house-3D-model.jpg" style="border-radius: 20px"/>
+                <p class="text-muted card-text mt-3" style="font-size: 14px">URN: xxxyyyzzz</p>
+              </div>
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -36,6 +60,7 @@ export default {
       userEmail: '',
       userPassword: '',
       on_manager: Boolean,
+      project_list: []
     }
   },
   firestore() {
@@ -47,6 +72,7 @@ export default {
       this.userName = docSnapshot.data()['username']
       this.userEmail = docSnapshot.data()['userEmail']
       this.userPassword = docSnapshot.data()['userPassword']
+      this.project_list = docSnapshot.data()['projects']
       if (this.userRole == null) {
         this.userRole = "Software Engineer"
       }
@@ -78,6 +104,36 @@ export default {
   url("../assets/images/construction.jpg") center no-repeat;
   background-size: cover;
   position: relative;
+}
+h5{
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+ion-icon{
+  margin-right: 3rem;
+}
+.card {
+  border-radius: 10px;
+  box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
+  border: 0;
+  transition: all .15s ease-in;
+  min-width: 180px !important;
+  min-height: 250px !important;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
+  text-decoration: none !important;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  text-decoration: none !important;
+  color: black;
+  text-align: center;
 }
 
 @-webkit-keyframes shake {
