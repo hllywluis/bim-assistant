@@ -37,10 +37,9 @@
               </div>
             </div>
           </div>
-
         </div>
 
-        <!--DialogFlow Chat
+        <!-- DialogFlow Chat -->
         <div>
           <df-messenger
               agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"
@@ -49,7 +48,7 @@
               chat-title="BIM Assistant"
               language-code="en"
           ></df-messenger>
-        </div> -->
+        </div>
       </div>
     </div>
   </client-only>
@@ -110,23 +109,6 @@ export default {
         console.error(err)
       })
     }
-  },
-  mounted() {
-    (function (d, m) {
-      var kommunicateSettings = {
-        "appId": "1c4576bf9371418470e54ea4d2258a9d7",
-        "popupWidget": true,
-        "automaticChatOpenOnNavigation": true
-      };
-      var s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-      var h = document.getElementsByTagName("head")[0];
-      h.appendChild(s);
-      window.kommunicate = m;
-      m._globals = kommunicateSettings;
-    })(document, window.kommunicate || {});
   }
 }
 </script>
