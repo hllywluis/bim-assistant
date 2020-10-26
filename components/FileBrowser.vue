@@ -1,7 +1,11 @@
 <template>
   <div class="fileBrowser">
     <div v-for="(bucket, idx) of bucket_list" :key="idx">
-      <button>{{ bucket }}</button>
+      <select :title="bucket" :name="bucket" class="" v-model="bucket_name">
+        <div v-for="(object, idx) of object_list" :key="idx">
+          <option >{{ object }}</option>
+        </div>
+      </select>
     </div>
   </div>
 </template>
@@ -15,6 +19,7 @@ name: "FileBrowser",
       bucket_name: '',
       object_name: '',
       bucket_list: ["Example Bucket", "Example Bucket 2"],
+      object_list: ["Example Object", "Example Object 2"]
     }
   }
 }
@@ -28,7 +33,8 @@ name: "FileBrowser",
 
 }
 
-button{
+
+select{
   width: 100%;
   margin-bottom: 5px;
   border: 0px;
