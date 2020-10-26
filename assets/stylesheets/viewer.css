@@ -9,6 +9,11 @@
     height: 100vh;
 }
 
+iframe {
+    border: 0;
+    border-radius: 0;
+}
+
 /* df-messenger {
     --df-messenger-bot-message: #878fac;
     --df-messenger-button-titlebar-color: #b8caff;
