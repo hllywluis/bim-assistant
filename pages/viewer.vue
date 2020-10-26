@@ -5,27 +5,27 @@
       <div class="container-fluid text-center" style="padding: 0">
         <div class="row d-inline-flex w-100">
 
-          <!-- Tree Menu for Fle Browsing -->
-          <div class="2D-modeling col-2 bg-light border-left" style="height: 92vh">
+          <!-- Tree Menu for File Browsing -->
+          <div class="2D-modeling col-2 bg-light border-right" style="height: 92vh">
             Tree Menu for File Browsing <span class="badge bg-info ml-2 my-4">New</span>
           </div>
 
           <!-- 3D Modeling Section -->
-          <div class="3D-modeling col bg-transparent border-right p-0 m-0" style="height: 92vh">
+          <div class="3D-modeling col bg-transparent border-0 p-0 m-0" style="height: 92vh">
             <forge-vuer
                 :extensions="extensions"
                 :get-access-token="handleAccessToken"
                 :urn="myObjectUrn"
             />
           </div>
-          <div></div>
+
           <div class="col-2 p-0 m-0 mr-4">
             <!-- 2D Modeling Section -->
             <div class="2D-modeling col bg-light border-left" style="height: 46vh">
               2D-Modeling <span class="badge bg-info ml-2 my-4">New</span>
             </div>
             <!-- 2D Modeling Section -->
-            <div class="2D-modeling col bg-light border-left" style="height: 46vh">
+            <div class="2D-modeling col bg-light border-left" style="height: 46vh; overflow: auto">
               Utility <span class="badge bg-info ml-2 my-4">New</span>
 
               <!-- Utility Buttons Grid -->
@@ -40,7 +40,7 @@
 
         </div>
 
-        <!--DialogFlow Chat-->
+        <!--DialogFlow Chat
         <div>
           <df-messenger
               agent-id="7f4325ae-c139-4a5e-9aa7-78f5e0f92326"
@@ -49,7 +49,7 @@
               chat-title="BIM Assistant"
               language-code="en"
           ></df-messenger>
-        </div>
+        </div> -->
       </div>
     </div>
   </client-only>

@@ -10,23 +10,19 @@
 }
 
 iframe {
-    border: 10px;
-    -moz-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    border-radius: 12px;
-    -moz-box-shadow: 4px 4px 14px #000;
-    -webkit-box-shadow: 4px 4px 14px #000;
-    box-shadow: 4px 4px 14px #000;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
 }
 
-df-messenger {
+/* df-messenger {
     --df-messenger-bot-message: #878fac;
     --df-messenger-button-titlebar-color: #b8caff;
     --df-messenger-chat-background-color: #fafafa;
     --df-messenger-font-color: white;
     --df-messenger-send-icon: #878fac;
     --df-messenger-user-message: #4B7AA1;
-}
+} */
 
 footer {
     padding: 2rem 0 1rem 0;
