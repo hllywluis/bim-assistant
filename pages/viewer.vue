@@ -8,6 +8,7 @@
           <!-- Tree Menu for File Browsing -->
           <div class="2D-modeling col-2 bg-light border-right" style="height: 92vh">
             Tree Menu for File Browsing <span class="badge bg-info ml-2 my-4">New</span>
+            <FileBrowser/>
           </div>
 
           <!-- 3D Modeling Section -->
@@ -59,10 +60,12 @@ import navbar from "@/components/navbar";
 import myAwesomeExtension from "@/components/forge/extensions/myAwesomeExtension";
 import myCustomToolbar from "@/components/forge/extensions/myCustomToolbar";
 import '@/assets/stylesheets/viewer.css';
+import FileBrowser from "@/components/FileBrowser";
 
 export default {
   name: "viewer",
   components: {
+    FileBrowser,
     navbar
   },
   computed: {
