@@ -18,22 +18,27 @@
 
       <!-- Folder links -->
       <div v-for="(folder, idx) of folder_list" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
-        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+        <button aria-controls="innerSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler justify-content-center mt-3"
                 data-target=".dual-collapse2"
                 data-toggle="collapse" style="border:none; outline: none" type="button">
           <a class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
           {{ folder }}</button>
+
+        <!-- Object Links -->
+        <div v-for="(object, idx) of object_list" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
+          <ul aria-controls="inner2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+              data-target=".dual-collapse2"
+              data-toggle="collapse"
+              class="navbar-nav ml-auto">
+            <li class="nav-item text-center ">
+              <a class="nav-link" style="cursor: pointer">{{ object }}</a>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
-      <div v-for="(object, idx) of object_list" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item text-center ">
-                <a class="nav-link" style="cursor: pointer">{{ object }}</a>
-              </li>
-            </ul>
-      </div>
-<!--    </div>-->
 
 
 
