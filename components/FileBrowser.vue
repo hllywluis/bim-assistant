@@ -1,12 +1,33 @@
 <template>
   <div class="fileBrowser">
-    <div v-for="(bucket, idx) of bucket_list" :key="idx">
-      <select :title="bucket" :name="bucket" class="" v-model="bucket_name">
-        <div v-for="(object, idx) of object_list" :key="idx">
-          <option >{{ object }}</option>
-        </div>
-      </select>
-    </div>
+<!--    <div v-for="(bucket, idx) of bucket_list">-->
+<!--      <button>{{bucket}}</button>-->
+<!--        <div v-for="(object, idx) of object_list">-->
+<!--        <a href="#">{{object}}</a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+      <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+              class="navbar-toggler justify-content-center mt-3"
+              data-target=".dual-collapse2"
+              data-toggle="collapse" style="border:none; outline: none" type="button">
+        <a class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
+      {Project Name Here}</button>
+
+      <!-- Folder links -->
+      <div v-for="(folder, idx) of folder_list" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 text-white">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item text-center ">
+            <a class="nav-link" style="cursor: pointer">{{ folder }}</a>
+          </li>
+        </ul>
+      </div>
+<!--    </div>-->
+
+
+
   </div>
 </template>
 
@@ -16,9 +37,9 @@ name: "FileBrowser",
 
   data() {
     return {
-      bucket_name: '',
+      folder_name: '',
       object_name: '',
-      bucket_list: ["Example Bucket", "Example Bucket 2"],
+      folder_list: ["Example Folder", "Example Folder 2"],
       object_list: ["Example Object", "Example Object 2"]
     }
   }
@@ -38,6 +59,10 @@ select{
   width: 100%;
   margin-bottom: 5px;
   border: 0px;
+}
+
+a{
+  color: black !important;
 }
 
 </style>
