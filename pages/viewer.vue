@@ -136,6 +136,7 @@ export default {
 
   data() {
     return {
+      myObjectURN: '',
       project_name: "{Your Project Name}",
       folder_name: '',
       object_name: '',
@@ -172,7 +173,8 @@ export default {
       objectURN = Buffer.from(res.body.items[obj].objectId).toString('base64')
     })
 
-    return {myObjectURN : objectURN}
+    this.myObjectURN = objectURN
+
   }
 
   },
