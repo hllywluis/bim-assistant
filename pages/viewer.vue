@@ -26,13 +26,13 @@
                   {{ folder }}</button>
 
                 <!-- Object Links -->
-                <div v-for="(object, idx) of object_list" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
+                <div v-for="(object, idx) of myObjectList" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
                   <ul aria-controls="inner2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                       data-target=".dual-collapse2"
                       data-toggle="collapse"
                       class="navbar-nav ml-auto">
                     <li class="nav-item text-center ">
-                      <a class="nav-link" style="cursor: pointer">{{ object }}</a>
+                      <a @click="loadObject(object) " class="nav-link" style="cursor: pointer">{{ object }}</a>
                     </li>
                   </ul>
                 </div>
@@ -47,7 +47,7 @@
             <forge-vuer
                 :extensions="extensions"
                 :get-access-token="handleAccessToken"
-                :urn="myObjectUrn"
+                :urn="myObjectURN"
             />
           </div>
 
@@ -109,25 +109,37 @@ export default {
   async asyncData({$axios}) {
     let bucketURN
     let bucketDetails
-    let objectURN
+    let objectList = []
+    let i = 0
     await $axios.$get('http://localhost:3000/api/buckets').then(res => {
-      bucketURN = res.body.items[8].bucketKey
+      bucketURN = res.body.items[4].bucketKey
     })
     await $axios.get(`http://localhost:3000/api/bucketDetails/${bucketURN}`).then(res => {
       bucketDetails = res.body
     })
     await $axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
-      objectURN = Buffer.from(res.body.items[0].objectId).toString('base64')
+      //objectURN = Buffer.from(res.body.items[0].objectId).toString('base64')
+      // TODO: give each object a default name and let user change it (objects dont have names...)
+      // for (i in Buffer.from(res.body.items).length, i++){
+      //   objectList.push (Buffer.from(res.body.items[0].objectName).toString('base64'))
+      // }
+      for (i=0; i< Buffer.from(res.body.items).length; i++) {
+        objectList.push (i)
+      }
     })
 
-    return {myObjectUrn: objectURN}
+    return {myObjectList: objectList}
   },
+
+
+
+
   data() {
     return {
       project_name: "{Your Project Name}",
       folder_name: '',
       object_name: '',
-      folder_list: ["Example Folder", "Example Folder 2"],
+      folder_list: ["Example Folder"],
       object_list: ["Example Object", "Example Object 2"],
       myToken: '',
       tokenPkg: {},
@@ -140,14 +152,31 @@ export default {
     }
   },
   methods: {
+
     handleAccessToken: async function (onSuccess) {
       await this.$axios.$get('http://localhost:3000/api/token').then(res => {
         onSuccess(res.access_token, res.expires_in)
       }).catch(err => {
         console.error(err)
       })
-    }
+    },
+
+  loadObject: async function(obj){
+    let bucketURN
+    let objectURN
+    await this.$axios.$get('http://localhost:3000/api/buckets').then(res => {
+      bucketURN = res.body.items[4].bucketKey
+    })
+
+    await this.$axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
+      objectURN = Buffer.from(res.body.items[obj].objectId).toString('base64')
+    })
+
+    return {myObjectURN : objectURN}
   }
+
+  },
+
 }
 </script>
 
