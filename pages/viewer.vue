@@ -29,10 +29,10 @@
                 <div v-for="(object, idx) of myObjectList" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
                   <ul aria-controls="inner2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                       data-target=".dual-collapse2"
-                      data-toggle="collapse"
+
                       class="navbar-nav ml-auto">
                     <li class="nav-item text-center ">
-                      <a @click="loadObject(object) " class="nav-link" style="cursor: pointer">{{ object }}</a>
+                      <a @click="loadObject(object) " class="nav-link" style="cursor: pointer"> object {{ object }}</a>
                     </li>
                   </ul>
                 </div>
@@ -132,6 +132,13 @@ export default {
   },
 
 
+  firestore() {
+    const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
+    userdataRef.onSnapshot((docSnapshot) => {
+
+    })
+    //const companyEmployees = db.collection('userdata')
+  },
 
 
   data() {
@@ -183,5 +190,9 @@ export default {
 </script>
 
 <style scoped>
+
+a{
+  color: black;
+}
 
 </style>
