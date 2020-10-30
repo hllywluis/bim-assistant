@@ -14,19 +14,23 @@
                       data-target=".dual-collapse2"
                       data-toggle="collapse" style="border:none; outline: none" type="button">
                 <a class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
-                {{ project_name }}</button>
+                {{ project_name }}
+              </button>
 
               <!-- Folder links -->
-              <div v-for="(folder, idx) of folder_list" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
+              <div v-for="(folder, idx) of folder_list" :key="idx"
+                   class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
                 <button aria-controls="innerSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                         class="navbar-toggler justify-content-center mt-3"
                         data-target=".dual-collapse2"
                         data-toggle="collapse" style="border:none; outline: none" type="button">
                   <a class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
-                  {{ folder }}</button>
+                  {{ folder }}
+                </button>
 
                 <!-- Object Links -->
-                <div v-for="(object, idx) of myObjectList" :key="idx" class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
+                <div v-for="(object, idx) of myObjectList" :key="idx"
+                     class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
                   <ul aria-controls="inner2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                       data-target=".dual-collapse2"
 
@@ -91,7 +95,6 @@ import navbar from "@/components/navbar";
 import myAwesomeExtension from "@/components/forge/extensions/myAwesomeExtension";
 import myCustomToolbar from "@/components/forge/extensions/myCustomToolbar";
 import '@/assets/stylesheets/viewer.css';
-import projects from "@/pages/projects";
 
 export default {
   name: "viewer",
@@ -123,24 +126,15 @@ export default {
       // for (i in Buffer.from(res.body.items).length, i++){
       //   objectList.push (Buffer.from(res.body.items[0].objectName).toString('base64'))
       // }
-      for (i=0; i< Buffer.from(res.body.items).length; i++) {
-        objectList.push (i)
+      for (i = 0; i < Buffer.from(res.body.items).length; i++) {
+        objectList.push(i)
       }
     })
-
     return {myObjectList: objectList}
   },
-
-
   firestore() {
-    const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
-    userdataRef.onSnapshot((docSnapshot) => {
 
-    })
-    //const companyEmployees = db.collection('userdata')
   },
-
-
   data() {
     return {
       myObjectURN: '',
@@ -160,7 +154,6 @@ export default {
     }
   },
   methods: {
-
     handleAccessToken: async function (onSuccess) {
       await this.$axios.$get('http://localhost:3000/api/token').then(res => {
         onSuccess(res.access_token, res.expires_in)
@@ -168,30 +161,24 @@ export default {
         console.error(err)
       })
     },
-
-  loadObject: async function(obj){
-    let bucketURN
-    let objectURN
-    await this.$axios.$get('http://localhost:3000/api/buckets').then(res => {
-      bucketURN = res.body.items[4].bucketKey
-    })
-
-    await this.$axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
-      objectURN = Buffer.from(res.body.items[obj].objectId).toString('base64')
-    })
-
-    this.myObjectURN = objectURN
-
-  }
-
+    loadObject: async function (obj) {
+      let bucketURN
+      let objectURN
+      await this.$axios.$get('http://localhost:3000/api/buckets').then(res => {
+        bucketURN = res.body.items[4].bucketKey
+      })
+      await this.$axios.$get(`http://localhost:3000/api/objects/${bucketURN}`).then(res => {
+        objectURN = Buffer.from(res.body.items[obj].objectId).toString('base64')
+      })
+      this.myObjectURN = objectURN
+    }
   },
-
 }
 </script>
 
 <style scoped>
 
-a{
+a {
   color: black;
 }
 

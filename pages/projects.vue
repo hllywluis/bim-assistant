@@ -122,49 +122,38 @@ export default {
   },
   methods: {
     // creates new project
-    new_project: function () {
-      const userdataRef = this.$fireStore.collection('buckets').doc(this.user.data.uid)
-      userdataRef.get().then((docSnapshot) => {
-        if (docSnapshot.exists) {
-          if (docSnapshot.get('names')) {
-            let project_list = docSnapshot.get('names')
-            // Checks for existing project with same name
-            if (project_list.includes(this.project_name)) {
-              alert("A project already exists with this name");
-            } else {
-              project_list.push(this.project_name)
-
-              userdataRef.update({
-                projects: project_list
-              })
-            }
-          }
-        }
-        this.on_create = false
+    new_project: async function () {
+      let bucketKey
+      const bucketRef = this.$fireStore.collection('userdata').doc(this.user.data.uid).collection('buckets').doc(this.project_name)
+      console.log(this.project_name)
+      await this.$axios.get(`http://localhost:3000/api/createBucket/${this.project_name}`).then(res => {
+        bucketKey = Buffer.from(res.data.body.bucketKey).toString('base64')
       })
+      bucketRef.get().then(() => {
+        bucketRef.set({
+          bucketKey: bucketKey
+        })
+      })
+      this.on_create = false
     },
     //deletes an existing project
-    delete_project: function (proj) {
-      const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
-      userdataRef.get().then((docSnapshot) => {
-        if (docSnapshot.exists) {
-          if (docSnapshot.get('projects')) {
-            let project_list = docSnapshot.get('projects')
-            const index = project_list.indexOf(proj)
-            project_list.splice(index, 1)
-            userdataRef.update({
-              projects: project_list
-            })
-          }
-        }
-        this.on_delete = false
+    delete_project: async function (proj) {
+      await this.$axios.get(`http://localhost:3000/api/deleteBucket/${proj}`).then(() => {
+        this.$fireStore.collection('userdata').doc(this.user.data.uid).collection('buckets').doc(proj).delete().then(() => {
+          this.project_list.splice(1, this.project_list.indexOf(proj))
+          this.on_delete = false
+        })
       })
     }
   },
   firestore() {
-    const userdataRef = this.$fireStore.collection('userdata').doc(this.user.data.uid)
-    userdataRef.onSnapshot((docSnapshot) => {
-      this.project_list = docSnapshot.data()['projects']
+    const bucketRef = this.$fireStore.collection('userdata').doc(this.user.data.uid).collection('buckets')
+    bucketRef.onSnapshot(buckets => {
+      for (let i = 0; i < buckets.docs.length; ++i) {
+        if (!this.project_list.includes(buckets.docs[i].id)) {
+          this.project_list.push(buckets.docs[i].id)
+        }
+      }
     })
   }
 }
