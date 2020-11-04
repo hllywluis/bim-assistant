@@ -2,24 +2,23 @@
   <div class="profile">
     <section class="background-picture">
       <navbar :on_profile="true"></navbar>
-      <div class="container-fluid main-message w-100 ">
-        <h1 class="text-center text-md-left">My Profile</h1>
+      <div class="main-message w-100">
+        <h1 class="text-lg-center">My Profile</h1>
       </div>
     </section>
-    <div class="row container justify-content-center">
-
+    <div class="row container justify-content-center" style="padding: 0">
       <!--Display User Info-->
-      <div class="m-3 p-5 bg-light" style="width: 30rem; height: 12rem; border-radius: 30px">
+      <div class="m-3 p-5 bg-light col" style="width: 100%; height: 12rem; border-radius: 30px">
         <h5><ion-icon name="person-outline"></ion-icon>{{ userName || 'No Name Set' }}</h5>
         <h5><ion-icon name="business-outline"></ion-icon>{{ companyName || 'No Company Name Set' }}</h5>
-        <h5><ion-icon name="briefcase-outline"></ion-icon>{{ userRole }}</h5>
+        <h5><ion-icon name="briefcase-outline"></ion-icon>{{ userRole || 'No Role Set'}}</h5>
         <h5><ion-icon name="call-outline"></ion-icon>{{ phone || 'No Phone Number Set' }}</h5>
         <h5><ion-icon name="mail-outline"></ion-icon>{{ userEmail || 'No Email Set' }}</h5>
         <div v-if="userRole==='Construction Manager'"></div>
       </div>
 
       <!--Display Projects under user-->
-      <div class="m-3 p-5 bg-light" style="width: 48rem; height: 26rem; border-radius: 30px">
+      <div class="m-3 p-5 bg-light col" style="width: 100%; height: auto; border-radius: 30px">
         <h5><ion-icon name="cube-outline"></ion-icon>List of Projects</h5>
         <div v-if="!on_create && !on_delete"
              class="align-content-center justify-content-center d-flex">
@@ -28,7 +27,7 @@
               <div class="card-body">
                 <h6 class="text-center mx-0">{{ project }}</h6>
                 <hr class="border-top"/>
-                <img alt="Project Image" class="img-responsive w-100 "
+                <img alt="Project Image" class="img-responsive w-100"
                      src="../assets/images/house-3D-model.jpg" style="border-radius: 20px"/>
                 <p class="text-muted card-text mt-3" style="font-size: 14px">URN: xxxyyyzzz</p>
               </div>
@@ -105,15 +104,17 @@ export default {
   background-size: cover;
   position: relative;
 }
-h5{
+
+h5 {
   margin-bottom: 1rem;
   margin-left: 2rem;
   font-family: "Roboto", sans-serif;
 }
 
-ion-icon{
+ion-icon {
   margin-right: 3rem;
 }
+
 .card {
   border-radius: 10px;
   box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
