@@ -49,6 +49,7 @@
             <div class="w-100 text-center d-flex justify-content-center">
               <button @click="google_sign_in" class="google-btn btn btn-block btn-light mx-2" style="position: relative; padding-left: 2em; margin-bottom: 1.1em" type="button"><ion-icon name="logo-google" style="position: absolute; left: 1.4em; top: 1em; display: block"></ion-icon> Continue with Google</button>
             </div>
+
           </form>
         </div>
       </div>
@@ -89,6 +90,7 @@ export default {
        */
       this.$fireAuth.signInWithEmailAndPassword(this.userEmail, this.userPassword).then(user => {
         const userdataRef = this.$fireStore.collection('userdata').doc(user.user.uid)
+        //Create bucket if no project exists
         userdataRef.get().then((docSnapshot) => {
           if (docSnapshot.exists) {
             if (!docSnapshot.get('projects')) {
@@ -112,11 +114,28 @@ export default {
       this.$fireAuth.signInWithRedirect(provider)
     },
 
+
     forge_sign_in: function(){
-
+      this.$fireAuth.signInWithEmailAndPassword(this.userEmail, this.userPassword).then(user => {
+        const userdataRef = this.$fireStore.collection('userdata').doc(user.user.uid)
+        //Create bucket if no project exists
+        userdataRef.get().then((docSnapshot) => {
+          if (docSnapshot.exists) {
+            if (!docSnapshot.get('projects')) {
+              userdataRef.update({
+                projects: ['Example Project']
+              })
+            }
+          }
+        })
+        // Redirect the user to the index page after sign in completion.
+        this.$router.replace({name: 'index'})
+      }).catch(err => {
+        // Alert the user with the appropriate message.
+        alert(err.message)
+      })
     }
-
-  }
+    }
 }
 </script>
 
