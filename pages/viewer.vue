@@ -17,30 +17,29 @@
                 {{ project_name }}
               </button>
 
-              <!-- Folder links -->
-              <div v-for="(folder, idx) of folder_list" :key="idx"
+<!--               object links -->
+              <div v-for="(object, idx) of myObjectList" :key="idx"
                    class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
-                <button aria-controls="innerSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                <button @click="loadObject(object)" aria-controls="innerSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                         class="navbar-toggler justify-content-center mt-3"
                         data-target=".dual-collapse2"
-                        data-toggle="collapse" style="border:none; outline: none" type="button">
-                  <a class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
-                  {{ folder }}
+                         style="border:none; outline: none" type="button">
+                  <a  class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
+                  object {{ object }}
                 </button>
 
-                <!-- Object Links -->
-                <div v-for="(object, idx) of myObjectList" :key="idx"
+                <!-- subComponent Links -->
+                <div v-for="(subComponent, idx) of subComponents" :key="idx"
                      class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
                   <ul aria-controls="inner2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                       data-target=".dual-collapse2"
 
                       class="navbar-nav ml-auto">
                     <li class="nav-item text-center ">
-                      <a @click="loadObject(object) " class="nav-link" style="cursor: pointer"> object {{ object }}</a>
+                      <a class="nav-link" style="cursor: pointer"> {{ subComponent }}</a>
                     </li>
                   </ul>
                 </div>
-
               </div>
             </div>
           </div>
@@ -147,6 +146,9 @@ export default {
       tokenPkg: {},
       treeNodePkg: {},
       modelProgress: 0,
+
+      subComponents: ["living", "dining"],
+
       extensions: {
         myAwesomeExtension,
         myCustomToolbar
