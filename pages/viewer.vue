@@ -3,7 +3,7 @@
     <div class="forgeViewer">
       <navbar :on_viewer="true" class="py-0"></navbar>
       <div class="container-fluid text-center" style="padding: 0">
-        <div class="row d-inline-flex w-100">
+        <div class="d-inline-flex w-100">
 
           <!-- Tree Menu for File Browsing -->
           <div class="2D-modeling col-2 bg-light border-right" style="height: 92vh">
@@ -33,7 +33,6 @@
                      class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
                   <ul aria-controls="inner2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                       data-target=".dual-collapse2"
-
                       class="navbar-nav ml-auto">
                     <li class="nav-item text-center ">
                       <a class="nav-link" style="cursor: pointer"> {{ subComponent }}</a>
@@ -44,15 +43,30 @@
             </div>
           </div>
 
+            <!-- 3D Modeling Section -->
+            <div class="3D-modeling col bg-transparent border-0 p-0 m-0" style="height: 92vh">
 
-          <!-- 3D Modeling Section -->
-          <div class="3D-modeling col bg-transparent border-0 p-0 m-0" style="height: 92vh">
-            <forge-vuer
-                :extensions="extensions"
-                :get-access-token="handleAccessToken"
-                :urn="myObjectURN"
-            />
-          </div>
+              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn-secondary">Open</button>
+                <button type="button" class="btn btn-secondary">Close</button>
+
+                <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Levels
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" href="#">Dropdown link</a>
+                    <a class="dropdown-item" href="#">Dropdown link</a>
+                  </div>
+                </div>
+              </div>
+
+              <forge-vuer
+                  :extensions="extensions"
+                  :get-access-token="handleAccessToken"
+                  :urn="myObjectURN"
+              />
+            </div>
 
           <div class="col-2 p-0 m-0 mr-4">
             <!-- 2D Modeling Section -->
@@ -180,8 +194,6 @@ export default {
 
 <style scoped>
 
-a {
-  color: black;
-}
+
 
 </style>
