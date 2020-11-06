@@ -9,22 +9,58 @@
           <div class="2D-modeling col-2 bg-light border-right" style="height: 92vh">
             <div class="fileBrowser">
 
+              <!--Create New Bucket-->
+              <div class=" w-100 mx-0 my-3 px-0 " >
+              <ion-icon class="float-left" name="duplicate-outline" data-target="#newBucket" data-toggle="modal" type="button" style="left: 0!important; font-size: 30px "></ion-icon>
+              </div>
+              <!-- New Bucket Modal -->
+              <div id="newBucket" aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade"
+                   role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+
+                  <!-- New Bucket Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header " style="border: none">
+                      <h5 id="exampleModalLongTitle" class="modal-title ">Create New Bucket</h5>
+                      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body my-2 justify-content-center">
+                      <h6 class="mb-4">Enter new bucket name:</h6>
+                      <div>
+                        <input aria-describedby="inputGroup-sizing-md" aria-label="Small"
+                               class="form-control m-0 p-0 pl-4 w-100 "
+                               placeholder="Bucket Name"
+                               style=" border-radius: 30px;" type="text">
+                      </div>
+                    </div>
+                    <div class="modal-footer justify-content-center" style="border: none">
+                      <button class="btn btn-danger" data-dismiss="modal" type="button">Cancel</button>
+                      <button class="btn" style="border-color: black" type="button">Save changes</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
               <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                      class="navbar-toggler justify-content-center mt-3"
+                      class="navbar-toggler justify-content-center mt-0"
                       data-target=".dual-collapse2"
                       data-toggle="collapse" style="border:none; outline: none" type="button">
                 <a class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
                 {{ project_name }}
               </button>
 
-<!--               object links -->
+              <!--               object links -->
               <div v-for="(object, idx) of myObjectList" :key="idx"
                    class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
-                <button @click="loadObject(object)" aria-controls="innerSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                <button aria-controls="innerSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                         class="navbar-toggler justify-content-center mt-3"
                         data-target=".dual-collapse2"
-                         style="border:none; outline: none" type="button">
-                  <a  class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
+                        style="border:none; outline: none"
+                        type="button" @click="loadObject(object)">
+                  <a class="navbar-brand text-center font-weight-bold mx-auto pl-1" style="letter-spacing: 2px"></a>
                   object {{ object }}
                 </button>
 
@@ -32,8 +68,8 @@
                 <div v-for="(subComponent, idx) of subComponents" :key="idx"
                      class="collapse navbar-collapse w-100 dual-collapse2 my-3 ">
                   <ul aria-controls="inner2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                      data-target=".dual-collapse2"
-                      class="navbar-nav ml-auto">
+                      class="navbar-nav ml-auto"
+                      data-target=".dual-collapse2">
                     <li class="nav-item text-center ">
                       <a class="nav-link" style="cursor: pointer"> {{ subComponent }}</a>
                     </li>
@@ -43,30 +79,31 @@
             </div>
           </div>
 
-            <!-- 3D Modeling Section -->
-            <div class="3D-modeling col bg-transparent border-0 p-0 m-0" style="height: 92vh">
+          <!-- 3D Modeling Section -->
+          <div class="3D-modeling col bg-transparent border-0 p-0 m-0" style="height: 92vh">
 
-              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn btn-secondary">Open</button>
-                <button type="button" class="btn btn-secondary">Close</button>
+            <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
+              <button class="btn btn-secondary" type="button">Open</button>
+              <button class="btn btn-secondary" type="button">Close</button>
 
-                <div class="btn-group" role="group">
-                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Levels
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" href="#">Dropdown link</a>
-                    <a class="dropdown-item" href="#">Dropdown link</a>
-                  </div>
+              <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" aria-expanded="false" aria-haspopup="true"
+                        class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" type="button">
+                  Levels
+                </button>
+                <div aria-labelledby="btnGroupDrop1" class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Dropdown link</a>
+                  <a class="dropdown-item" href="#">Dropdown link</a>
                 </div>
               </div>
-
-              <forge-vuer
-                  :extensions="extensions"
-                  :get-access-token="handleAccessToken"
-                  :urn="myObjectURN"
-              />
             </div>
+
+            <forge-vuer
+                :extensions="extensions"
+                :get-access-token="handleAccessToken"
+                :urn="myObjectURN"
+            />
+          </div>
 
           <div class="col-2 p-0 m-0 mr-4">
             <!-- 2D Modeling Section -->
@@ -194,6 +231,18 @@ export default {
 
 <style scoped>
 
+.modal-footer .btn {
+  width: 7rem;
+  margin: .5rem;
+}
 
+.btn-danger:hover {
+  background-color: #dc3545;
+}
 
+input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 </style>

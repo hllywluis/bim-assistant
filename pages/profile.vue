@@ -20,8 +20,7 @@
       <!--Display Projects under user-->
       <div class="m-3 p-5 bg-light col" style="width: 100%; height: auto; border-radius: 30px">
         <h5><ion-icon name="cube-outline"></ion-icon>List of Projects</h5>
-        <div v-if="!on_create && !on_delete"
-             class="align-content-center justify-content-center d-flex">
+        <div class="align-content-center justify-content-center d-flex">
           <div v-for="(project, idx) of project_list" :key="idx" class="card m-3 mt-5 col-2">
             <nuxt-link class="card-title w-100 h-100 font-weight-bold" to="viewer">
               <div class="card-body">
