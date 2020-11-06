@@ -10,8 +10,9 @@
             <div class="fileBrowser">
 
               <!--Create New Bucket-->
-              <div class=" w-100 mx-0 my-3 px-0 " >
-              <ion-icon class="float-left" name="duplicate-outline" data-target="#newBucket" data-toggle="modal" type="button" style="left: 0!important; font-size: 30px "></ion-icon>
+              <div class=" w-100 mx-0 my-3 px-0 ">
+                <ion-icon class="float-left" data-target="#newBucket" data-toggle="modal" name="duplicate-outline"
+                          style="left: 0!important; font-size: 30px " type="button"></ion-icon>
               </div>
               <!-- New Bucket Modal -->
               <div id="newBucket" aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade"
@@ -108,18 +109,39 @@
           <div class="col-2 p-0 m-0 mr-4">
             <!-- 2D Modeling Section -->
             <div class="2D-modeling col bg-light border-left" style="height: 46vh">
-              2D-Modeling <span class="badge bg-info ml-2 my-4">New</span>
+              <h6 class="pt-4">2D-Modeling</h6>
             </div>
-            <!-- 2D Modeling Section -->
+
+            <!-- Utility Section -->
             <div class="2D-modeling col bg-light border-left" style="height: 46vh; overflow: auto">
-              Utility <span class="badge bg-info ml-2 my-4">New</span>
+              <h6>Utility</h6>
 
               <!-- Utility Buttons Grid -->
               <div class="utility row d-flex justify-content-center">
-                <a class="btn m-3" href="mailto: abc@example.com" style="width: 6rem">Email</a>
-                <a class="btn m-3" href="#" style="width: 6rem">Screenshot</a>
-                <a class="btn m-3" href="#" style="width: 6rem">Graph</a>
-                <a class="btn m-3" href="#" style="width: 6rem">Bar Chart</a>
+                <a class="m-3" data-placement="top" data-toggle="tooltip" href="mailto: abc@example.com"
+                   style="width: 3rem; font-size: 35px" title="Email">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </a>
+                <a class="m-3" data-placement="top" data-toggle="tooltip" href="#" style="width: 3rem; font-size: 35px"
+                   title="Screenshoot">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </a>
+                <a class="m-3" data-placement="top" data-toggle="tooltip" href="#" style="width: 3rem; font-size: 35px"
+                   title="Graph">
+                  <ion-icon name="bar-chart-outline"></ion-icon>
+                </a>
+                <a class="m-3" data-placement="top" data-toggle="tooltip" href="#" style="width: 3rem; font-size: 35px"
+                   title="Messenger">
+                  <ion-icon name="chatbubbles-outline"></ion-icon>
+                </a>
+                <a class="m-3" data-placement="top" data-toggle="tooltip" href="#" style="width: 3rem; font-size: 35px"
+                   title="Measurements Conversion">
+                  <ion-icon name="sync-outline"></ion-icon>
+                </a>
+                <a class="m-3" data-placement="top" data-toggle="tooltip" href="#" style="width: 3rem; font-size: 35px"
+                   title="Share Project">
+                  <ion-icon name="share-outline"></ion-icon>
+                </a>
               </div>
             </div>
           </div>
