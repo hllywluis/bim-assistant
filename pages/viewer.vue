@@ -1,7 +1,12 @@
 <template>
   <client-only>
-    <div class="forgeViewer">
-      <navbar :on_viewer="true" class="py-0"></navbar>
+    <div class="forgeViewer overflow-hidden" style="background: white !important;">
+
+      <!--Viewer Navbar-->
+      <viewer_navbar></viewer_navbar>
+      <!--      <navbar :on_viewer="true" class="py-0"></navbar>-->
+
+      <!--Left Panel Section on viewer-->
       <div class="container-fluid text-center" style="padding: 0">
         <div class="d-inline-flex w-100">
 
@@ -83,7 +88,7 @@
           <!-- 3D Modeling Section -->
           <div class="3D-modeling col bg-transparent border-0 p-0 m-0" style="height: 92vh">
 
-            <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
+            <!--<div aria-label="Button group with nested dropdown" class="btn-group" role="group">
               <button class="btn btn-secondary" type="button">Open</button>
               <button class="btn btn-secondary" type="button">Close</button>
 
@@ -97,7 +102,7 @@
                   <a class="dropdown-item" href="#">Dropdown link</a>
                 </div>
               </div>
-            </div>
+            </div>-->
 
             <forge-vuer
                 :extensions="extensions"
@@ -164,6 +169,7 @@
 
 <script>
 import navbar from "@/components/navbar";
+import viewer_navbar from "@/components/viewer_navbar";
 import myAwesomeExtension from "@/components/forge/extensions/myAwesomeExtension";
 import myCustomToolbar from "@/components/forge/extensions/myCustomToolbar";
 import '@/assets/stylesheets/viewer.css';
@@ -171,7 +177,8 @@ import '@/assets/stylesheets/viewer.css';
 export default {
   name: "viewer",
   components: {
-    navbar
+    navbar,
+    viewer_navbar
   },
   computed: {
     user() {
@@ -267,4 +274,5 @@ input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 </style>
