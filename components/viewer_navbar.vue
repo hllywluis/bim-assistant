@@ -32,7 +32,7 @@
                    href="#" role="button">
                   Levels
                 </a>
-                <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu overflow-hidden">
                   <a class="dropdown-item" href="#">Action</a>
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>

@@ -15,8 +15,8 @@
             <div class="fileBrowser">
 
               <!--Create New Bucket-->
-              <div class=" w-100 mx-0 my-3 px-0 ">
-                <ion-icon class="float-left" data-target="#newBucket" data-toggle="modal" name="duplicate-outline"
+              <div class=" w-100 mx-0 my-3 px-0">
+                <ion-icon class="float-right" data-target="#newBucket" data-toggle="modal" name="duplicate-outline"
                           style="left: 0!important; font-size: 30px " type="button"></ion-icon>
               </div>
               <!-- New Bucket Modal -->
@@ -113,13 +113,19 @@
 
           <div class="col-2 p-0 m-0 mr-4">
             <!-- 2D Modeling Section -->
-            <div class="2D-modeling col bg-light border-left" style="height: 46vh">
-              <h6 class="pt-4">2D-Modeling</h6>
+            <div class="2D-modeling col bg-light border-left border" style="height: 46vh">
+<!--              <h6 class="pt-4">2D-Modeling</h6>-->
+              <forge-vuer
+                  :extensions="extensions"
+                  :get-access-token="handleAccessToken"
+                  :urn="myObjectURN"
+                  :headless="true"
+              />
             </div>
 
             <!-- Utility Section -->
             <div class="2D-modeling col bg-light border-left" style="height: 46vh; overflow: auto">
-              <h6>Utility</h6>
+              <h6 class="mt-4">Utility</h6>
 
               <!-- Utility Buttons Grid -->
               <div class="utility row d-flex justify-content-center">
