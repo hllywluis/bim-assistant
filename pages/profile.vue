@@ -74,6 +74,14 @@ export default {
       if (this.userRole == null) {
         this.userRole = "Software Engineer"
       }
+      const bucketRef = this.$fireStore.collection('userdata').doc(this.user.data.uid).collection('buckets')
+      bucketRef.onSnapshot(buckets => {
+        for (let i = 0; i < buckets.docs.length; ++i) {
+          if (!this.project_list.includes(buckets.docs[i].id)) {
+            this.project_list.push(buckets.docs[i].id)
+          }
+        }
+      })
     })
     //const companyEmployees = db.collection('userdata')
   },
