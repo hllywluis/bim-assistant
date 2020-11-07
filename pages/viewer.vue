@@ -111,15 +111,17 @@
             />
           </div>
 
-          <div class="col-2 p-0 m-0 mr-4">
+          <div class="col-2 p-0 m-0" style="margin-right: 2rem !important;">
             <!-- 2D Modeling Section -->
-            <div class="2D-modeling col bg-light border-left border" style="height: 46vh">
-<!--              <h6 class="pt-4">2D-Modeling</h6>-->
+            <div class="2D-modeling col bg-light border-left" style="height: 46vh">
+              <h6 class="pt-4">2D-Model</h6>
               <forge-vuer
                   :extensions="extensions"
                   :get-access-token="handleAccessToken"
                   :urn="myObjectURN"
                   :headless="true"
+                  class="border"
+                  style="height: 39vh"
               />
             </div>
 
