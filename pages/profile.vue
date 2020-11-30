@@ -1,13 +1,17 @@
 <template>
   <div class="profile">
+    <!-- Top section -->
     <section class="background-picture">
+      <!-- Navbar -->
       <navbar :on_profile="true"></navbar>
       <div class="main-message w-100">
+        <!-- Title -->
         <h1 class="text-lg-center">My Profile</h1>
       </div>
     </section>
+
     <div class="row container justify-content-center" style="padding: 0">
-      <!--Display User Info-->
+      <!-- Display user info -->
       <div class="m-3 p-5 bg-light col" style="width: 100%; height: 12rem; border-radius: 30px">
         <h5><ion-icon name="person-outline"></ion-icon>{{ userName || 'No Name Set' }}</h5>
         <h5><ion-icon name="business-outline"></ion-icon>{{ companyName || 'No Company Name Set' }}</h5>
@@ -17,7 +21,7 @@
         <div v-if="userRole==='Construction Manager'"></div>
       </div>
 
-      <!--Display Projects under user-->
+      <!-- Display Projects under user -->
       <div class="m-3 p-5 bg-light col" style="width: 100%; height: auto; border-radius: 30px">
         <h5><ion-icon name="cube-outline"></ion-icon>List of Projects</h5>
         <div class="align-content-center justify-content-center d-flex">
@@ -92,6 +96,7 @@ export default {
 </script>
 
 <style scoped>
+/* Background picture */
 .background-picture::before {
   content: "";
   position: absolute;
@@ -112,16 +117,19 @@ export default {
   position: relative;
 }
 
+/* Title */
 h5 {
   margin-bottom: 1rem;
   margin-left: 2rem;
   font-family: "Roboto", sans-serif;
 }
 
+/* Icon */
 ion-icon {
   margin-right: 3rem;
 }
 
+/* Descriptive card */
 .card {
   border-radius: 10px;
   box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
@@ -144,6 +152,7 @@ ion-icon {
   text-align: center;
 }
 
+/* Animation */
 @-webkit-keyframes shake {
   from {
     -webkit-transform: rotate(3deg);
@@ -156,7 +165,7 @@ ion-icon {
 }
 
 
-/*Screen Resolution with min-width: 700px*/
+/* Screen Resolution with min-width: 700px */
 @media screen and (min-width: 768px) {
   .background-picture::before {
     height: 6.5rem;
@@ -167,7 +176,7 @@ ion-icon {
   }
 }
 
-/*Screen Resolution with min-width: 950px*/
+/* Screen Resolution with min-width: 950px */
 @media screen and (min-width: 950px) {
   .background-picture {
     height: 22.7rem;
@@ -186,7 +195,7 @@ ion-icon {
   }
 }
 
-/*Screen Resolution with min-width: 1200px*/
+/* Screen Resolution with min-width: 1200px */
 @media screen and (min-width: 1100px) {
   .background-picture {
     height: 23.7rem;
