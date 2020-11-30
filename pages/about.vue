@@ -1,17 +1,21 @@
 <template>
   <div class="about">
     <section class="background-picture">
+      <!-- Navbar -->
       <navbar :on_about="true"></navbar>
       <div class="main-message w-100">
-        <h1 class="text-lg-center">About</h1>
+        <!-- Title -->
+        <h1 class="text-lg-center align-middle">About</h1>
       </div>
     </section>
 
     <div class="container" style="width: 85% !important">
       <div class="row justify-content-center align-items-center">
+        <!-- First left column -->
         <div class="col">
           <img class="w-100" src="../assets/images/white-3D-model.jpg" alt="3D Model">
         </div>
+        <!-- First right column -->
         <div class="col">
           <p>BIM (Building Information Modelling) is an intelligent digital representation of physical and functional
             characteristics of a building or infrastructure. It is considered the game changing innovation for the AEC
@@ -19,21 +23,23 @@
             tools to more efficiently plan, design, construct, and manage building and infrastructure.
           </p>
         </div>
-
         <div class="w-100"></div>
+        <!-- Second left column -->
         <div class="col">
           <p>This is the third release of Intelligent BIM Virtual Assistant, a web application that renders 3D models and 2D
             floor plans for BIM objects of different formats with an implemented speech recognition feature for design-based
             queries.</p>
         </div>
+        <!-- Second right column -->
         <div class="col">
           <img class="w-100" src="../assets/images/constructors.png" alt="Constructors">
         </div>
-
         <div class="w-100"></div>
+        <!-- Third left column -->
         <div class="col">
           <img class="w-100" src="../assets/images/sunset2.png" alt="Sunset">
         </div>
+        <!-- Third right column -->
         <div class="col">
           <p>BIM provides essential insights to aid in efficient planning and management for infrastructure construction.
             It still requires a learning curve for those interested in using the product, yet it can provide an easier way
@@ -45,7 +51,7 @@
 
     <!-- Footer -->
     <footer>
-      <p style="font-size: 1rem">&copy; 2020 BIM Assistant. All rights reserved.</p>
+      <p>&copy; 2020 BIM Assistant. All rights reserved.</p>
     </footer>
   </div>
 </template>
@@ -68,6 +74,7 @@ p {
   margin-bottom: 0;
 }
 
+/* Background picture */
 .background-picture::before {
   content: "";
   position: absolute;
@@ -84,12 +91,12 @@ p {
   width: 100%;
   max-width: 100vw;
   height: 45vh;
-  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%),
-  url("../assets/images/construction.jpg") center no-repeat;
+  background: linear-gradient(135deg, rgba(80, 100, 131, 0.5) 0%, rgba(40, 56, 149, 0.8) 100%), center no-repeat;
   background-size: cover;
   position: relative;
 }
 
+/* Footer */
 footer {
   padding: 1rem 0;
   margin-top: 70px;
@@ -99,9 +106,10 @@ footer {
 }
 
 footer p {
-  margin-bottom: 0;
+  font-size: 1rem;
 }
 
+/* Animation */
 @-webkit-keyframes shake {
   from {
     -webkit-transform: rotate(3deg);
@@ -113,18 +121,14 @@ footer p {
   }
 }
 
-/*Screen Resolution with min-width: 700px*/
+/* Screen Resolution with min-width: 700px */
 @media screen and (min-width: 768px) {
   .background-picture::before {
     height: 6.5rem;
   }
-
-  .main-message {
-    transform: translateY(50%);
-  }
 }
 
-/*Screen Resolution with min-width: 950px*/
+/* Screen Resolution with min-width: 950px */
 @media screen and (min-width: 950px) {
   .background-picture {
     height: 22.7rem;
@@ -143,7 +147,7 @@ footer p {
   }
 }
 
-/*Screen Resolution with min-width: 1200px*/
+/* Screen Resolution with min-width: 1200px */
 @media screen and (min-width: 1100px) {
   .background-picture {
     height: 23.7rem;
@@ -154,11 +158,7 @@ footer p {
   }
 
   .main-message h1 {
-    font-size: 2.7rem;
-  }
-
-  .main-message h5 {
-    font-size: 1.2rem;
+    font-size: 3.0rem;
   }
 }
 </style>
